@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D2845" />
+  <title>Qoutur — Paiement</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="dropdown lang-fab">
+    <button type="button" class="btn btn-q-outline btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-translate me-1"></i><span class="lang-current">FR</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end lang-menu">
+      <li><button type="button" class="dropdown-item lang-option" data-lang="fr">🇫🇷 Français</button></li>
+      <li><button type="button" class="dropdown-item lang-option" data-lang="en">🇬🇧 English</button></li>
+    </ul>
+  </div>
+
+  <main class="section-sm">
+    <div class="container">
+      <div class="text-center mb-4">
+        <a href="index.html" aria-label="Retour à l'accueil" class="d-inline-block mb-3">
+          <img src="images/qoutur-logo.png" alt="Qoutur" style="height:96px;width:auto;" />
+        </a>
+        <p class="eyebrow" data-i18n data-fr="Paiement sécurisé" data-en="Secure payment">Paiement sécurisé</p>
+        <h1 class="section-title" data-i18n data-fr="Réglez votre commande" data-en="Pay for your order">Réglez votre commande</h1>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- ============ FORMULAIRE MOBILE MONEY ============ -->
+        <div class="col-lg-7 order-lg-1">
+          <form id="payForm" class="pay-card">
+            <h5 class="mb-3" data-i18n data-fr="Choisissez votre opérateur Mobile Money" data-en="Choose your Mobile Money operator">Choisissez votre opérateur Mobile Money</h5>
+
+            <div class="row g-3 mb-4">
+              <div class="col-4">
+                <label class="momo-option">
+                  <input type="radio" name="operateur" value="MTN MoMo" checked />
+                  <span class="momo-tile">
+                    <img src="images/MTN-mobile-money.png" alt="MTN Mobile Money" class="momo-logo-img" />
+                    <span class="momo-name">MTN MoMo</span>
+                  </span>
+                </label>
+              </div>
+              <div class="col-4">
+                <label class="momo-option momo-disabled">
+                  <input type="radio" name="operateur" value="Moov Money" disabled />
+                  <span class="momo-tile">
+                    <img src="images/Moov-money.png" alt="Moov Money" class="momo-logo-img" />
+                    <span class="momo-name">Moov Money</span>
+                    <span class="momo-soon" data-i18n data-fr="Bientôt" data-en="Soon">Bientôt</span>
+                  </span>
+                </label>
+              </div>
+              <div class="col-4">
+                <label class="momo-option">
+                  <input type="radio" name="operateur" value="Celtis Money" />
+                  <span class="momo-tile">
+                    <img src="images/Celtis-money.jpg" alt="Celtis Money" class="momo-logo-img" />
+                    <span class="momo-name">Celtis Money</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="nomClient" data-i18n data-fr="Nom du titulaire" data-en="Account holder name">Nom du titulaire</label>
+              <input type="text" class="form-control form-control-lg" id="nomClient" data-i18n-ph data-ph-fr="Ex. Soda Diop" data-ph-en="e.g. Soda Diop" placeholder="Ex. Soda Diop" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="numero" data-i18n data-fr="Numéro Mobile Money" data-en="Mobile Money number">Numéro Mobile Money</label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text">+229</span>
+                <input type="tel" class="form-control" id="numero" inputmode="numeric"
+                       placeholder="07 00 00 00 00" pattern="[0-9 ]{8,}" required />
+              </div>
+              <div class="form-text" data-i18n data-fr="Vous recevrez une demande de confirmation sur ce numéro." data-en="You will receive a confirmation request on this number.">Vous recevrez une demande de confirmation sur ce numéro.</div>
+            </div>
+          </form>
+        </div>
+
+        <!-- ============ RÉCAPITULATIF ============ -->
+        <div class="col-lg-5 order-lg-2">
+          <div class="pay-summary">
+            <h5 class="mb-3" data-i18n data-fr="Récapitulatif" data-en="Summary">Récapitulatif</h5>
+            <div class="d-flex align-items-center gap-3 pb-3 mb-2 border-bottom">
+              <span class="q-avatar">SD</span>
+              <div>
+                <div class="fw-bold">Cliente SODA</div>
+                <div class="small text-muted" data-i18n data-fr="Robe sur mesure · Femme" data-en="Custom dress · Women">Robe sur mesure · Femme</div>
+              </div>
+            </div>
+            <div class="line"><span class="text-muted" data-i18n data-fr="Confection tenue" data-en="Outfit making">Confection tenue</span><span>35 000 FCFA</span></div>
+            <div class="line"><span class="text-muted" data-i18n data-fr="Tissu &amp; fournitures" data-en="Fabric &amp; supplies">Tissu &amp; fournitures</span><span>8 000 FCFA</span></div>
+            <div class="line"><span class="text-muted" data-i18n data-fr="Livraison" data-en="Delivery">Livraison</span><span>2 000 FCFA</span></div>
+            <div class="line total"><span data-i18n data-fr="Total à payer" data-en="Total to pay">Total à payer</span><span>45 000 FCFA</span></div>
+
+            <div class="mt-3 p-3 rounded" style="background:var(--q-cream);">
+              <p class="small mb-1 fw-semibold"><i class="bi bi-info-circle me-1 text-gold"></i>Atelier Aïcha Couture</p>
+              <p class="small text-muted mb-0" data-i18n data-fr="Livraison estimée sous 5 à 7 jours après paiement." data-en="Estimated delivery within 5 to 7 days after payment.">Livraison estimée sous 5 à 7 jours après paiement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ BOUTON DE PAIEMENT ============ -->
+        <div class="col-12 col-lg-7 order-lg-3">
+          <div class="d-grid mt-2 mt-lg-4">
+            <button type="submit" form="payForm" class="btn btn-q-primary btn-lg">
+              <i class="bi bi-lock-fill me-2"></i><span data-i18n data-fr="Payer" data-en="Pay">Payer</span> <span id="btnAmount">45 000 FCFA</span>
+            </button>
+          </div>
+          <p class="q-badge-secure d-flex justify-content-center mt-3 mb-0">
+            <i class="bi bi-shield-lock-fill text-gold"></i>
+            <span data-i18n data-fr="Transaction chiffrée et sécurisée" data-en="Encrypted and secure transaction">Transaction chiffrée et sécurisée</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ MODALE CONFIRMATION ============ -->
+  <div class="modal fade" id="payModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body p-4">
+          <div class="q-icon mx-auto mb-3" style="background:var(--q-cream);"><i class="bi bi-phone-vibrate"></i></div>
+          <h5 class="mb-2" data-i18n data-fr="Demande de paiement envoyée" data-en="Payment request sent">Demande de paiement envoyée</h5>
+          <p class="text-muted mb-4" id="payMsg"></p>
+          <button class="btn btn-q-primary w-100" data-bs-dismiss="modal" data-i18n data-fr="J'ai compris" data-en="Got it">J'ai compris</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="q-footer mt-4">
+    <div class="container text-center small">
+      <a class="d-inline-block mb-2" href="index.html">
+        <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
+      </a>
+      <p class="mb-0" data-i18n data-fr="© 2026 Qoutur. Paiement Mobile Money sécurisé." data-en="© 2026 Qoutur. Secure Mobile Money payment.">© 2026 Qoutur. Paiement Mobile Money sécurisé.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('payForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const op = document.querySelector('input[name="operateur"]:checked').value;
+      const num = document.getElementById('numero').value;
+      const lang = window.qGetLang ? window.qGetLang() : 'fr';
+      document.getElementById('payMsg').textContent = (lang === 'en')
+        ? "Confirm the payment of 45,000 FCFA via " + op + " on the number +229 " + num + "."
+        : "Confirmez le paiement de 45 000 FCFA via " + op + " sur le numéro +229 " + num + ".";
+      new bootstrap.Modal(document.getElementById('payModal')).show();
+    });
+  </script>
+</body>
+</html>

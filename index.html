@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D2845" />
+  <title>Qoutur — La plateforme des tailleurs</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png" />
+
+  <!-- Police Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg q-navbar sticky-top">
+    <div class="container">
+      <a class="q-brand navbar-brand" href="index.html">
+        <img src="images/qoutur-icon.png" alt="Qoutur" class="q-logo-img" />
+        <span>QOUTUR</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+          <li class="nav-item"><a class="nav-link" href="#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactez-nous.html" data-i18n data-fr="Contact" data-en="Contact">Contact</a></li>
+          <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
+            <button type="button" class="btn btn-q-outline btn-sm dropdown-toggle px-3" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate me-1"></i><span class="lang-current">FR</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end lang-menu">
+              <li><button type="button" class="dropdown-item lang-option" data-lang="fr">🇫🇷 Français</button></li>
+              <li><button type="button" class="dropdown-item lang-option" data-lang="en">🇬🇧 English</button></li>
+            </ul>
+          </li>
+          <li class="nav-item mt-2 mt-lg-0">
+            <a class="btn btn-q-primary px-3 py-2" href="#inscription" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="q-hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <p class="eyebrow mb-3" data-i18n data-fr="L'atelier connecté du tailleur moderne" data-en="The connected workshop for the modern tailor">L'atelier connecté du tailleur moderne</p>
+          <h1 class="mb-3" data-i18n data-fr="Gérez vos clients, mesures et paiements <span class='text-gold'>en un seul endroit</span>" data-en="Manage your clients, measurements and payments <span class='text-gold'>in one place</span>">Gérez vos clients, mesures et paiements <span class="text-gold">en un seul endroit</span></h1>
+          <p class="lead mb-4" data-i18n data-fr="Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort." data-en="Qoutur digitalizes your tailoring workshop: record your clients' measurements, track your orders and get paid via Mobile Money, effortlessly.">Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#inscription" class="btn btn-q-primary" data-i18n data-fr="Créer mon atelier" data-en="Create my workshop">Créer mon atelier</a>
+          </div>
+          <div class="d-flex flex-wrap gap-4 mt-4 pt-2 text-muted small">
+            <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Sans installation" data-en="No installation">Sans installation</span></span>
+            <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Paiement Mobile Money" data-en="Mobile Money payment">Paiement Mobile Money</span></span>
+            <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Tarif réduit" data-en="Affordable pricing">Tarif réduit</span></span>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="q-hero-card">
+            <div class="q-hero-visual mb-3">
+              <img src="images/qoutur_image_default-1.png" alt="Atelier Qoutur" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ FONCTIONNALITÉS ============ -->
+  <section class="section" id="fonctionnalites">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="eyebrow" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</p>
+        <h2 class="section-title" data-i18n data-fr="Tout ce qu'il faut pour votre atelier" data-en="Everything your workshop needs">Tout ce qu'il faut pour votre atelier</h2>
+      </div>
+      <div class="row g-4" id="featuresList"></div>
+    </div>
+  </section>
+
+  <!-- ============ COMMENT ÇA MARCHE ============ -->
+  <section class="section bg-beige" id="etapes">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="eyebrow" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</p>
+        <h2 class="section-title" data-i18n data-fr="Votre atelier en ligne en 3 étapes" data-en="Your online workshop in 3 steps">Votre atelier en ligne en 3 étapes</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="q-card text-center">
+            <span class="q-step-num mb-3">1</span>
+            <h5 data-i18n data-fr="Créez votre atelier" data-en="Create your workshop">Créez votre atelier</h5>
+            <p class="text-muted mb-0" data-i18n data-fr="Inscrivez-vous en renseignant vos informations et le nom de votre atelier." data-en="Sign up by entering your details and the name of your workshop.">Inscrivez-vous en renseignant vos informations et le nom de votre atelier.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="q-card text-center">
+            <span class="q-step-num mb-3">2</span>
+            <h5 data-i18n data-fr="Ajoutez vos clients" data-en="Add your clients">Ajoutez vos clients</h5>
+            <p class="text-muted mb-0" data-i18n data-fr="Enregistrez les mesures de tous vos clients." data-en="Record the measurements of all your clients.">Enregistrez les mesures de tous vos clients.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="q-card text-center">
+            <span class="q-step-num mb-3">3</span>
+            <h5 data-i18n data-fr="Confectionnez &amp; encaissez" data-en="Craft &amp; get paid">Confectionnez &amp; encaissez</h5>
+            <p class="text-muted mb-0" data-i18n data-fr="Suivez la commande et recevez le paiement par Mobile Money." data-en="Track the order and receive payment via Mobile Money.">Suivez la commande et recevez le paiement par Mobile Money.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARIFS ============ -->
+  <section class="section" id="tarifs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="eyebrow" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</p>
+        <h2 class="section-title" data-i18n data-fr="Un prix simple, sans surprise" data-en="Simple pricing, no surprises">Un prix simple, sans surprise</h2>
+        <p class="text-muted" data-i18n data-fr="Tout Qoutur, pour un abonnement annuel unique." data-en="All of Qoutur, for a single yearly subscription.">Tout Qoutur, pour un abonnement annuel unique.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+          <div class="q-price-card">
+            <span class="q-price-badge" data-i18n data-fr="Offre Atelier" data-en="Workshop plan">Offre Atelier</span>
+            <div class="q-price mt-3">
+              <span class="q-price-amount">10 000</span>
+              <span class="q-price-cur">FCFA</span>
+              <span class="q-price-period" data-i18n data-fr="/ an" data-en="/ year">/ an</span>
+            </div>
+            <p class="text-muted small mb-4" data-i18n data-fr="Soit moins de 850 FCFA par mois." data-en="That's less than 850 FCFA per month.">Soit moins de 850 FCFA par mois.</p>
+            <ul class="q-price-list list-unstyled text-start mb-4">
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Clients &amp; fiches illimités" data-en="Unlimited clients &amp; profiles">Clients &amp; fiches illimités</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Prise de mesures digitale (30 mesures)" data-en="Digital measurements (30 measures)">Prise de mesures digitale (30 mesures)</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Suivi des commandes" data-en="Order tracking">Suivi des commandes</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Paiement Mobile Money" data-en="Mobile Money payment">Paiement Mobile Money</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Rappels automatiques aux clients" data-en="Automatic client reminders">Rappels automatiques aux clients</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Tableau de bord &amp; support" data-en="Dashboard &amp; support">Tableau de bord &amp; support</span></li>
+            </ul>
+            <a href="#inscription" class="btn btn-q-primary w-100 py-3" data-i18n data-fr="Commencer maintenant" data-en="Start now">Commencer maintenant</a>
+            <p class="q-badge-secure justify-content-center mt-3 mb-0">
+              <i class="bi bi-shield-check text-gold"></i> <span data-i18n data-fr="Sans engagement · Annulable à tout moment" data-en="No commitment · Cancel anytime">Sans engagement · Annulable à tout moment</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section bg-beige" id="faq">
+    <div class="container" style="max-width: 820px;">
+      <div class="text-center mb-5">
+        <p class="eyebrow" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</p>
+        <h2 class="section-title" data-i18n data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</h2>
+        <p class="text-muted" data-i18n data-fr="Tout ce que vous devez savoir sur Qoutur." data-en="Everything you need to know about Qoutur.">Tout ce que vous devez savoir sur Qoutur.</p>
+      </div>
+      <div class="accordion q-accordion" id="faqAccordion"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA / INSCRIPTION ============ -->
+  <section class="section-sm" id="inscription">
+    <div class="container">
+      <div class="q-cta">
+        <div class="row justify-content-between align-items-center g-4">
+          <div class="col-lg-9">
+            <h2 class="mb-2" data-i18n data-fr="Prêt à digitaliser votre atelier ?" data-en="Ready to digitalize your workshop?">Prêt à digitaliser votre atelier ?</h2>
+            <p class="mb-0 opacity-75" data-i18n data-fr="Rejoignez les tailleurs qui gèrent leurs clients et leurs paiements avec Qoutur. Gratuit pour commencer." data-en="Join the tailors managing their clients and payments with Qoutur. Free to start.">Rejoignez les tailleurs qui gèrent leurs clients et leurs paiements avec Qoutur. Gratuit pour commencer.</p>
+          </div>
+          <div class="col-lg-3 text-lg-end">
+            <a href="https://qoutur-tailor.nakod.net/signin" class="btn btn-q-gold text-nowrap" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="q-footer">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-lg-5">
+          <a class="d-inline-block mb-3" href="index.html">
+            <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:44px;width:auto;" />
+          </a>
+          <p class="small mb-0" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur." data-en="The platform that digitalizes the tailoring profession.">La plateforme qui digitalise le métier de tailleur.</p>
+        </div>
+        <div class="col-lg-auto text-lg-end">
+          <h6 class="mb-3" data-i18n data-fr="Ressource" data-en="Resources">Ressource</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="#faq" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</a></li>
+            <li><a href="contactez-nous.html" data-i18n data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a></li>
+            <li><a href="mentions-legales.html" data-i18n data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
+            <li><a href="termes-conditions.html" data-i18n data-fr="Termes et conditions" data-en="Terms &amp; conditions">Termes et conditions</a></li>
+            <li><a href="politique-confidentialite.html" data-i18n data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4 opacity-25" />
+      <div class="d-flex flex-column flex-sm-row justify-content-center small">
+        <span class="text-center" data-i18n data-fr="© 2026 Qoutur. Tous droits réservés." data-en="© 2026 Qoutur. All rights reserved.">© 2026 Qoutur. Tous droits réservés.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ============ DONNÉES + RENDU FONCTIONNALITÉS & FAQ ============ -->
+  <script>
+    // ---- Fonctionnalités (features_fr-en.json) ----
+    const FEATURES = [
+      { icon: "bi-person-vcard", fr: ["Carnet de clients centralisé", "Gardez toute votre clientèle au même endroit : coordonnées, historique de commandes et mesures. Fini les cahiers perdus et les fiches éparpillées."], en: ["Centralized client directory", "Keep your entire clientele in one place: contact details, order history, and measurements. No more lost notebooks or scattered files."] },
+      { icon: "bi-rulers", fr: ["Prise de mesures intelligente", "Enregistrez les mesures de chaque client par catégorie (buste, bas, mesures communes) et par genre. Personnalisez vos propres libellés de mesures selon vos habitudes de travail — le tout illustré et réutilisable d'une commande à l'autre."], en: ["Smart measurement taking", "Record each client's measurements by category (top, bottom, common measurements) and by gender. Customize your own measurement labels to match your workflow — all illustrated and reusable from one order to the next."] },
+      { icon: "bi-link-45deg", fr: ["Saisie de mesures à distance", "Envoyez un lien sécurisé à votre client : il renseigne lui-même ses mesures depuis son téléphone, sans se déplacer. Vous recevez tout directement dans la commande."], en: ["Remote measurement entry", "Send your client a secure link: they enter their own measurements from their phone, without having to travel. You receive everything directly in the order."] },
+      { icon: "bi-phone", fr: ["Paiement Mobile Money", "Encaissez vos clients directement par Mobile Money."], en: ["Mobile Money payment", "Collect payments directly from your clients via Mobile Money."] },
+      { icon: "bi-bell", fr: ["Notifications en temps réel", "Restez informé à chaque étape : nouveau paiement reçu, mesure complétée, commande mise à jour."], en: ["Real-time notifications", "Stay informed at every step: new payment received, measurement completed, order updated."] },
+      { icon: "bi-life-preserver", fr: ["Support intégré", "Une question, un souci ? Ouvrez un ticket depuis l'application et échangez directement avec l'équipe Qoutur."], en: ["Built-in support", "A question or an issue? Open a ticket from the app and chat directly with the Qoutur team."] }
+    ];
+
+    // ---- FAQ (faq-fr-en.json) — items actifs uniquement ----
+    const FAQ = [
+      { fr: ["Qoutur, c'est quoi exactement ?", "Qoutur est une plateforme en ligne qui aide les tailleurs et couturières à gérer leurs clientes, leurs mesures, leurs commandes et leurs paiements, le tout depuis un seul endroit — sans installation."], en: ["What exactly is Qoutur?", "Qoutur is an online platform that helps tailors and dressmakers manage their clients, measurements, orders, and payments, all from one place — no installation required."] },
+      { fr: ["Ai-je besoin d'installer un logiciel ?", "Non. Qoutur fonctionne directement dans votre navigateur, sur ordinateur comme sur téléphone. Rien à télécharger."], en: ["Do I need to install any software?", "No. Qoutur works directly in your browser, on both computer and phone. Nothing to download."] },
+      { fr: ["Comment fonctionne la prise de mesures ?", "Vous enregistrez jusqu'à 30 mesures par client, avec des repères visuels qui vous guident pour éviter les erreurs de saisie."], en: ["How does measurement tracking work?", "You can record up to 30 measurements per client, with visual guides to help you avoid entry errors."] },
+      { fr: ["Puis-je retrouver l'historique d'une cliente ?", "Oui. Chaque fiche client conserve l'historique des commandes, les mesures et les préférences (modèles, tissus, etc.)."], en: ["Can I view a client's history?", "Yes. Each client profile keeps a history of orders, measurements, and preferences (styles, fabrics, etc.)."] },
+      { fr: ["Comment mes clientes peuvent-elles payer ?", "Vous pouvez encaisser directement via Mobile Money (Orange Money, MTN, Moov, Wave), même pour des clientes à distance."], en: ["How can my clients pay?", "You can collect payments directly via Mobile Money (Orange Money, MTN, Moov, Wave), even from remote clients."] },
+      { fr: ["Mes clientes reçoivent-elles une notification quand leur commande est prête ?", "Oui, un rappel automatique est envoyé par SMS ou notification dès que la tenue est terminée."], en: ["Do my clients get notified when their order is ready?", "Yes, an automatic reminder is sent by SMS or notification as soon as the outfit is finished."] },
+      { fr: ["Qoutur est-il payant ?", "L'inscription est gratuite pour commencer. Aucune carte bancaire n'est requise à la création du compte."], en: ["Is Qoutur a paid service?", "Signing up is free to get started. No credit card is required to create an account."] },
+      { fr: ["Mes données sont-elles en sécurité ?", "Oui, les informations de vos clientes (mesures, coordonnées, historique) sont stockées de manière sécurisée et ne sont accessibles qu'à vous."], en: ["Is my data secure?", "Yes, your clients' information (measurements, contact details, history) is stored securely and is only accessible to you."] },
+      { fr: ["Comment puis-je être accompagné si j'ai un problème ?", "Une équipe support est disponible pour vous accompagner dans la prise en main de l'outil."], en: ["How can I get help if I have a problem?", "A support team is available to help you get started with the tool."] },
+      { fr: ["Qoutur propose-t-il un service de livraison ?", "Oui. Une fois la commande prête, vous pouvez organiser la livraison directement depuis la plateforme, sans passer par un canal externe."], en: ["Does Qoutur offer a delivery service?", "Yes. Once the order is ready, you can arrange delivery directly from the platform, without going through an external channel."] },
+      { fr: ["Comment fonctionne le suivi de la livraison ?", "Vous assignez la commande à un livreur, et votre cliente peut suivre l'état de sa livraison (en préparation, en cours, livrée) jusqu'à la réception."], en: ["How does delivery tracking work?", "You assign the order to a courier, and your client can track the delivery status (preparing, in progress, delivered) until it arrives."] },
+      { fr: ["La cliente est-elle prévenue quand sa commande est en route ?", "Oui, un rappel automatique (SMS ou notification) est envoyé dès que la commande est confiée au livreur, puis à la livraison."], en: ["Is the client notified when her order is on the way?", "Yes, an automatic reminder (SMS or notification) is sent as soon as the order is handed to the courier, and again upon delivery."] }
+    ];
+
+    const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    function renderFeatures(lang) {
+      const box = document.getElementById("featuresList");
+      box.innerHTML = FEATURES.map((f) => {
+        const t = f[lang];
+        return `<div class="col-md-6 col-lg-4">
+          <div class="q-card">
+            <span class="q-icon"><i class="bi ${f.icon}"></i></span>
+            <h5>${esc(t[0])}</h5>
+            <p class="text-muted mb-0">${esc(t[1])}</p>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    function renderFaq(lang) {
+      const box = document.getElementById("faqAccordion");
+      box.innerHTML = FAQ.map((item, i) => {
+        const t = item[lang];
+        return `<div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq${i}">
+              ${esc(t[0])}
+            </button>
+          </h2>
+          <div id="faq${i}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">${esc(t[1])}</div>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    function renderDynamic() {
+      const lang = window.qGetLang ? window.qGetLang() : "fr";
+      renderFeatures(lang);
+      renderFaq(lang);
+    }
+
+    renderDynamic();
+    document.addEventListener("qlangchange", renderDynamic);
+  </script>
+</body>
+</html>
