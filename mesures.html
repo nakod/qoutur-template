@@ -78,6 +78,20 @@
     </div>
   </div>
 
+  <!-- ============ MODALE RÉSULTAT D'ENREGISTREMENT ============ -->
+  <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body p-4">
+          <div class="result-icon" id="resIcon" style="width:72px;height:72px;font-size:2.2rem;"><i id="resIconGlyph" class="bi"></i></div>
+          <h5 class="mb-2" id="resTitle"></h5>
+          <p class="text-muted mb-4" id="resMsg"></p>
+          <button type="button" class="btn btn-q-primary w-100" data-bs-dismiss="modal" id="resBtn"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 
@@ -95,10 +109,16 @@
     ];
 
     const T = {
-      fr: { see: "Voir l'image", sent: "Merci ! Vos mesures ont bien été envoyées.",
-            hint: (n) => "Positionnez le mètre-ruban comme indiqué pour la mesure « " + n + " »." },
-      en: { see: "View image", sent: "Thank you! Your measurements have been sent.",
-            hint: (n) => "Position the tape measure as shown for the « " + n + " » measurement." }
+      fr: { see: "Voir l'image",
+            hint: (n) => "Positionnez le mètre-ruban comme indiqué pour la mesure « " + n + " ».",
+            okTitle: "Mesures enregistrées !", okMsg: "Vos mesures ont bien été enregistrées.",
+            koTitle: "Enregistrement échoué", koMsg: "Veuillez renseigner au moins une mesure avant d'envoyer.",
+            ok: "Parfait", retry: "Réessayer" },
+      en: { see: "View image",
+            hint: (n) => "Position the tape measure as shown for the « " + n + " » measurement.",
+            okTitle: "Measurements saved!", okMsg: "Your measurements have been saved successfully.",
+            koTitle: "Save failed", koMsg: "Please enter at least one measurement before submitting.",
+            ok: "Great", retry: "Try again" }
     };
     const lang = () => (window.qGetLang ? window.qGetLang() : "fr");
 
@@ -148,10 +168,34 @@
       });
     });
 
-    // Soumission
+    // Soumission : succès si au moins une mesure est renseignée, sinon échec
+    const resModal = new bootstrap.Modal(document.getElementById('resultModal'));
+    const resIcon  = document.getElementById('resIcon');
+    const resGlyph = document.getElementById('resIconGlyph');
+
     document.getElementById('measureForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert(T[lang()].sent);
+      const t = T[lang()];
+      const rempli = MESURES.some((_, i) => {
+        const v = document.getElementById('m' + i).value.trim();
+        return v !== '' && Number(v) > 0;
+      });
+
+      if (rempli) {
+        resIcon.className = 'result-icon success';
+        resGlyph.className = 'bi bi-check-lg';
+        document.getElementById('resTitle').textContent = t.okTitle;
+        document.getElementById('resMsg').textContent = t.okMsg;
+        document.getElementById('resBtn').textContent = t.ok;
+      } else {
+        resIcon.className = 'result-icon failed';
+        resGlyph.className = 'bi bi-x-lg';
+        document.getElementById('resTitle').textContent = t.koTitle;
+        document.getElementById('resMsg').textContent = t.koMsg;
+        document.getElementById('resBtn').textContent = t.retry;
+      }
+      resIcon.style.width = '72px'; resIcon.style.height = '72px'; resIcon.style.fontSize = '2.2rem';
+      resModal.show();
     });
   </script>
 </body>

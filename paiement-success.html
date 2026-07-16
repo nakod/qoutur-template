@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D2845" />
+  <title>Qoutur — Paiement réussi</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="dropdown lang-fab">
+    <button type="button" class="btn btn-q-outline btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-translate me-1"></i><span class="lang-current">FR</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end lang-menu">
+      <li><button type="button" class="dropdown-item lang-option" data-lang="fr">🇫🇷 Français</button></li>
+      <li><button type="button" class="dropdown-item lang-option" data-lang="en">🇬🇧 English</button></li>
+    </ul>
+  </div>
+
+  <main class="result-wrap">
+    <div class="container">
+      <div class="result-card result-success">
+        <div class="result-icon success">
+          <i class="bi bi-check-lg"></i>
+        </div>
+        <a href="index.html" aria-label="Accueil" class="d-inline-block mb-3">
+          <img src="images/qoutur-logo.png" alt="Qoutur" style="height:72px;width:auto;" />
+        </a>
+        <h1 class="h3 mb-2" data-i18n data-fr="Paiement réussi !" data-en="Payment successful!">Paiement réussi !</h1>
+        <p class="text-muted mb-4" data-i18n
+           data-fr="Merci ! Votre paiement a bien été confirmé. Votre commande est prise en compte et votre tailleur en est informé."
+           data-en="Thank you! Your payment has been confirmed. Your order is registered and your tailor has been notified.">
+          Merci ! Votre paiement a bien été confirmé. Votre commande est prise en compte et votre tailleur en est informé.
+        </p>
+
+        <div class="result-receipt">
+          <div class="line"><span class="text-muted" data-i18n data-fr="Référence" data-en="Reference">Référence</span><span class="fw-semibold" id="refNum">QT-000000</span></div>
+          <div class="line"><span class="text-muted" data-i18n data-fr="Montant payé" data-en="Amount paid">Montant payé</span><span class="fw-semibold">45 000 FCFA</span></div>
+          <div class="line"><span class="text-muted" data-i18n data-fr="Statut" data-en="Status">Statut</span><span class="badge-paid" data-i18n data-fr="Payé" data-en="Paid">Payé</span></div>
+        </div>
+
+        <div class="d-grid gap-2 mt-4">
+          <a href="index.html" class="btn btn-q-primary py-2" data-i18n data-fr="Retour à l'accueil" data-en="Back to home">Retour à l'accueil</a>
+          <a href="paiement.html" class="btn btn-q-outline py-2" data-i18n data-fr="Nouveau paiement" data-en="New payment">Nouveau paiement</a>
+        </div>
+
+        <p class="q-badge-secure d-flex justify-content-center mt-4 mb-0">
+          <i class="bi bi-shield-lock-fill text-gold"></i>
+          <span data-i18n data-fr="Transaction chiffrée et sécurisée" data-en="Encrypted and secure transaction">Transaction chiffrée et sécurisée</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Référence de transaction : ?ref=... sinon générée
+    const params = new URLSearchParams(location.search);
+    const ref = params.get("ref") || ("QT-" + Math.floor(100000 + Math.random() * 900000));
+    document.getElementById("refNum").textContent = ref;
+  </script>
+</body>
+</html>

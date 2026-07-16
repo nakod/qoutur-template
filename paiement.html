@@ -146,7 +146,10 @@
           <div class="q-icon mx-auto mb-3" style="background:var(--q-cream);"><i class="bi bi-phone-vibrate"></i></div>
           <h5 class="mb-2" data-i18n data-fr="Demande de paiement envoyée" data-en="Payment request sent">Demande de paiement envoyée</h5>
           <p class="text-muted mb-4" id="payMsg"></p>
-          <button class="btn btn-q-primary w-100" data-bs-dismiss="modal" data-i18n data-fr="J'ai compris" data-en="Got it">J'ai compris</button>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-q-primary w-100" id="payConfirm" data-i18n data-fr="J'ai confirmé sur mon téléphone" data-en="I confirmed on my phone">J'ai confirmé sur mon téléphone</button>
+            <button type="button" class="btn btn-q-outline w-100" id="payCancel" data-i18n data-fr="Le paiement a échoué" data-en="The payment failed">Le paiement a échoué</button>
+          </div>
         </div>
       </div>
     </div>
@@ -173,6 +176,15 @@
         ? "Confirm the payment of 45,000 FCFA via " + op + " on the number +229 " + num + "."
         : "Confirmez le paiement de 45 000 FCFA via " + op + " sur le numéro +229 " + num + ".";
       new bootstrap.Modal(document.getElementById('payModal')).show();
+    });
+
+    // Redirection selon l'issue du paiement
+    document.getElementById('payConfirm').addEventListener('click', () => {
+      const ref = "QT-" + Math.floor(100000 + Math.random() * 900000);
+      window.location.href = "paiement-success.html?ref=" + ref;
+    });
+    document.getElementById('payCancel').addEventListener('click', () => {
+      window.location.href = "paiement-echec.html";
     });
   </script>
 </body>
