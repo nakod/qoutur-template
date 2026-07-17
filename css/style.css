@@ -430,6 +430,56 @@ a:hover { color: var(--q-gold-600); }
 }
 
 /* =========================================================
+   PAGES RÉSULTAT DE PAIEMENT (succès / échec)
+   ========================================================= */
+.result-wrap {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2.5rem 1rem;
+}
+.result-card {
+  background: var(--q-white);
+  border: 1px solid rgba(13, 40, 69, 0.08);
+  border-radius: 20px;
+  box-shadow: var(--q-shadow);
+  padding: 2.5rem 2rem;
+  max-width: 440px;
+  margin: 0 auto;
+  text-align: center;
+}
+.result-icon {
+  width: 84px; height: 84px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.6rem; color: #fff; margin: 0 auto 1.25rem;
+  animation: result-pop .35s ease;
+}
+.result-icon.success { background: #2e9e5b; box-shadow: 0 0 0 8px rgba(46, 158, 91, 0.15); }
+.result-icon.failed  { background: #d64545; box-shadow: 0 0 0 8px rgba(214, 69, 69, 0.15); }
+@keyframes result-pop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.result-receipt {
+  background: var(--q-cream);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+.result-receipt .line { display: flex; justify-content: space-between; padding: .4rem 0; font-size: .95rem; }
+.badge-paid {
+  background: #2e9e5b; color: #fff; font-weight: 700; font-size: .75rem;
+  padding: .15rem .7rem; border-radius: 999px;
+}
+.result-reasons {
+  background: var(--q-cream);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+.result-reasons ul { padding-left: 1.1rem; }
+.result-reasons li { margin-bottom: .25rem; }
+
+/* =========================================================
    PAGE CONTACT
    ========================================================= */
 .contact-info-card {
