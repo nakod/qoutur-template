@@ -28,6 +28,7 @@
         <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
         <a href="support.html" class="active"><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
         <a href="notifications.html" class=""><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
+        <a href="personnel.html" class=""><i class="bi bi-person-badge-fill"></i><span>Personnel</span></a>
     </nav>
     <div class="a-side-foot">
       <div class="a-side-user">
@@ -48,27 +49,6 @@
       <div class="a-search"><i class="bi bi-search"></i><input type="search" placeholder="Rechercher…" /></div>
           <div class="a-topbar-actions">
         <span class="a-lang">FR</span>
-        <div class="a-dropdown">
-          <button class="a-iconbtn a-dd-toggle" aria-label="Notifications">
-            <i class="bi bi-bell"></i><span class="a-dot">3</span>
-          </button>
-          <div class="a-menu">
-            <div class="a-menu-head">Notifications</div>
-            <a href="ateliers.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-shop"></i></span>
-              <span class="n-txt">2 ateliers en attente de validation<span class="n-time d-block">Il y a 5 min</span></span>
-            </a>
-            <a href="finances.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-cash-stack"></i></span>
-              <span class="n-txt">Bazro Design a demandé un retrait de 80 000 FCFA<span class="n-time d-block">Il y a 40 min</span></span>
-            </a>
-            <a href="support.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
-              <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
-            </a>
-            <div class="a-menu-foot"><a href="support.html">Tout marquer comme lu</a></div>
-          </div>
-        </div>
         <div class="a-dropdown">
           <button class="a-userbtn a-dd-toggle">
             <span class="a-avatar">AD</span>
@@ -93,51 +73,134 @@
           <p>Fils de discussion avec les tailleurs.</p>
         </div>
       </div>
-      <div class="a-card">
-        <div class="a-thread unread" data-action="ouvrir la conversation">
-          <span class="a-avatar">AS</span>
-          <div class="flex-grow-1">
-            <div class="who">Atelier SISI <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· Maître SISI</span></div>
-            <div class="msg">Bonjour, je n'arrive pas à régulariser mes frais cash.</div>
+      <div class="row g-3 a-support">
+        <div class="col-lg-5">
+          <div class="a-card">
+            <div id="threadList"></div>
           </div>
-          <div class="meta"><div class="time">Il y a 12 min</div><div class="mt-1"><span class="a-unread-pill">2</span></div></div>
         </div>
-        <div class="a-thread unread" data-action="ouvrir la conversation">
-          <span class="a-avatar">SP</span>
-          <div class="flex-grow-1">
-            <div class="who">Sika Prestige <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· Sika Ahouansou</span></div>
-            <div class="msg">Ma demande de retrait a été rejetée, pourquoi ?</div>
+        <div class="col-lg-7">
+          <div class="a-card a-chat" id="chatCard">
+            <div class="a-chat-empty" id="chatEmpty">
+              <i class="bi bi-chat-left-text"></i>
+              <p class="mb-0">Sélectionnez une conversation pour l'afficher.</p>
+            </div>
+            <div class="a-chat-pane d-none" id="chatPane">
+              <div class="a-chat-head">
+                <span class="a-avatar" id="chatAvatar"></span>
+                <div class="flex-grow-1">
+                  <div class="who" id="chatWho"></div>
+                  <div class="small text-muted" id="chatWhom"></div>
+                </div>
+                <a href="ateliers.html" class="a-btn a-btn-ghost a-btn-sm">Voir l'atelier</a>
+              </div>
+              <div class="a-chat-body" id="chatBody"></div>
+              <form class="a-chat-input" id="chatForm">
+                <input type="text" id="chatDraft" placeholder="Écrivez votre réponse…" autocomplete="off" />
+                <button type="submit" class="a-btn a-btn-primary" aria-label="Envoyer"><i class="bi bi-send"></i></button>
+              </form>
+            </div>
           </div>
-          <div class="meta"><div class="time">Il y a 1h</div><div class="mt-1"><span class="a-unread-pill">1</span></div></div>
-        </div>
-        <div class="a-thread unread" data-action="ouvrir la conversation">
-          <span class="a-avatar">WF</span>
-          <div class="flex-grow-1">
-            <div class="who">Wax & Fils <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· Ignace Dossou</span></div>
-            <div class="msg">Pourquoi mon compte est suspendu ?</div>
-          </div>
-          <div class="meta"><div class="time">Il y a 3h</div><div class="mt-1"><span class="a-unread-pill">1</span></div></div>
-        </div>
-        <div class="a-thread" data-action="ouvrir la conversation">
-          <span class="a-avatar">MC</span>
-          <div class="flex-grow-1">
-            <div class="who">Mateta Couture <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· Joseph Mateta</span></div>
-            <div class="msg">Ma demande de validation atelier est-elle en cours ?</div>
-          </div>
-          <div class="meta"><div class="time">Il y a 1j</div><div class="mt-1"><i class="bi bi-check2-all" style="color:var(--a-muted-2);"></i></div></div>
-        </div>
-        <div class="a-thread" data-action="ouvrir la conversation">
-          <span class="a-avatar">BD</span>
-          <div class="flex-grow-1">
-            <div class="who">Bazro Design <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· Olivia Bazro</span></div>
-            <div class="msg">Bonjour, le solde était insuffisant au moment de la demande.</div>
-          </div>
-          <div class="meta"><div class="time">Il y a 2j</div><div class="mt-1"><i class="bi bi-check2-all" style="color:var(--a-muted-2);"></i></div></div>
         </div>
       </div>
     </main>
   </div>
 
   <script src="js/admin.js"></script>
+  <script>
+    const THREADS = [
+      { id:"t1", atelier:"Atelier SISI", who:"Maître SISI", ini:"AS", time:"Il y a 12 min", unread:2,
+        messages:[
+          {from:"client", text:"Bonjour, j'ai un souci avec mes frais de plateforme.", time:"09:12"},
+          {from:"client", text:"Je n'arrive pas à régulariser mes frais cash.", time:"09:13"}
+        ]},
+      { id:"t2", atelier:"Sika Prestige", who:"Sika Ahouansou", ini:"SP", time:"Il y a 1h", unread:1,
+        messages:[
+          {from:"client", text:"Ma demande de retrait a été rejetée, pourquoi ?", time:"08:40"}
+        ]},
+      { id:"t3", atelier:"Wax & Fils", who:"Ignace Dossou", ini:"WF", time:"Il y a 3h", unread:1,
+        messages:[
+          {from:"client", text:"Pourquoi mon compte est suspendu ?", time:"06:20"}
+        ]},
+      { id:"t4", atelier:"Mateta Couture", who:"Joseph Mateta", ini:"MC", time:"Il y a 1j", unread:0,
+        messages:[
+          {from:"client", text:"Ma demande de validation atelier est-elle en cours ?", time:"Hier 14:02"},
+          {from:"admin", text:"Bonjour, votre dossier est en cours de vérification (KYC). Vous serez notifié sous 48h.", time:"Hier 15:10"}
+        ]},
+      { id:"t5", atelier:"Bazro Design", who:"Olivia Bazro", ini:"BD", time:"Il y a 2j", unread:0,
+        messages:[
+          {from:"client", text:"Ma demande de retrait n'est pas passée.", time:"Lun 10:20"},
+          {from:"admin", text:"Bonjour, le solde était insuffisant au moment de la demande.", time:"Lun 10:35"}
+        ]}
+    ];
+
+    const list = document.getElementById("threadList");
+    const esc = (s) => (s||"").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    let currentId = null;
+
+    function renderList() {
+      list.innerHTML = THREADS.map(t => {
+        const last = t.messages[t.messages.length-1];
+        const active = t.id===currentId ? " active" : "";
+        const unread = t.unread ? " unread" : "";
+        const pill = t.unread ? `<span class="a-unread-pill">${t.unread}</span>` : `<i class="bi bi-check2-all" style="color:var(--a-muted-2);"></i>`;
+        return `<div class="a-thread${unread}${active}" data-thread="${t.id}">
+          <span class="a-avatar">${t.ini}</span>
+          <div class="flex-grow-1">
+            <div class="who">${esc(t.atelier)} <span style="color:var(--a-muted-2);font-weight:500;font-size:.82rem;">· ${esc(t.who)}</span></div>
+            <div class="msg">${esc(last.text)}</div>
+          </div>
+          <div class="meta"><div class="time">${t.time}</div><div class="mt-1">${pill}</div></div>
+        </div>`;
+      }).join("");
+      list.querySelectorAll("[data-thread]").forEach(el =>
+        el.addEventListener("click", () => openThread(el.getAttribute("data-thread"))));
+    }
+
+    function renderMessages(t) {
+      const body = document.getElementById("chatBody");
+      body.innerHTML = t.messages.map(m =>
+        `<div class="a-bubble-row ${m.from}"><div class="a-bubble ${m.from}">${esc(m.text)}<span class="b-time">${m.time}</span></div></div>`
+      ).join("");
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function openThread(id) {
+      const t = THREADS.find(x => x.id===id);
+      if (!t) return;
+      currentId = id;
+      t.unread = 0;                 // marquée comme lue
+      document.getElementById("chatEmpty").classList.add("d-none");
+      document.getElementById("chatPane").classList.remove("d-none");
+      document.getElementById("chatAvatar").textContent = t.ini;
+      document.getElementById("chatWho").textContent = t.atelier;
+      document.getElementById("chatWhom").textContent = t.who;
+      renderMessages(t);
+      renderList();
+      updateBadge();
+    }
+
+    function updateBadge() {
+      const totalUnread = THREADS.filter(t => t.unread>0).length;
+      document.querySelectorAll('.a-nav a[href="support.html"] .a-badge').forEach(b => {
+        if (totalUnread) b.textContent = totalUnread; else b.remove();
+      });
+    }
+
+    document.getElementById("chatForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("chatDraft");
+      const txt = input.value.trim();
+      if (!txt || !currentId) return;
+      const t = THREADS.find(x => x.id===currentId);
+      const now = new Date().toLocaleTimeString("fr-FR", {hour:"2-digit", minute:"2-digit"});
+      t.messages.push({from:"admin", text:txt, time:now});
+      input.value = "";
+      renderMessages(t);
+      renderList();
+    });
+
+    renderList();
+  </script>
 </body>
 </html>

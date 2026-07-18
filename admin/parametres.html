@@ -28,6 +28,7 @@
         <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
         <a href="support.html" class=""><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
         <a href="notifications.html" class=""><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
+        <a href="personnel.html" class=""><i class="bi bi-person-badge-fill"></i><span>Personnel</span></a>
     </nav>
     <div class="a-side-foot">
       <div class="a-side-user">
@@ -49,27 +50,6 @@
       <div class="a-topbar-actions">
         <span class="a-lang">FR</span>
         <div class="a-dropdown">
-          <button class="a-iconbtn a-dd-toggle" aria-label="Notifications">
-            <i class="bi bi-bell"></i><span class="a-dot">3</span>
-          </button>
-          <div class="a-menu">
-            <div class="a-menu-head">Notifications</div>
-            <a href="ateliers.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-shop"></i></span>
-              <span class="n-txt">2 ateliers en attente de validation<span class="n-time d-block">Il y a 5 min</span></span>
-            </a>
-            <a href="finances.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-cash-stack"></i></span>
-              <span class="n-txt">Bazro Design a demandé un retrait de 80 000 FCFA<span class="n-time d-block">Il y a 40 min</span></span>
-            </a>
-            <a href="support.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
-              <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
-            </a>
-            <div class="a-menu-foot"><a href="support.html">Tout marquer comme lu</a></div>
-          </div>
-        </div>
-        <div class="a-dropdown">
           <button class="a-userbtn a-dd-toggle">
             <span class="a-avatar">AD</span>
             <i class="bi bi-chevron-down caret"></i>
@@ -90,87 +70,177 @@
       <div class="a-page-head">
         <div>
           <h1>Paramètres</h1>
-          <p>Sécurité, notifications et préférences de la plateforme.</p>
+          <p>Table de configuration de la plateforme (label, clé, valeur JSON, type).</p>
         </div>
+        <div class="ms-auto"><button class="a-btn a-btn-primary" id="paramCreate"><i class="bi bi-plus-lg"></i> Créer un paramètre</button></div>
       </div>
-      <div class="row g-3">
-        <div class="col-lg-6">
-          <div class="a-card a-card-pad mb-3">
-            <h2 class="a-section-title">Sécurité</h2>
-            <form id="secForm">
-              <div class="mb-3">
-                <label class="a-label" for="curPwd">Mot de passe actuel</label>
-                <input type="password" class="form-control" id="curPwd" placeholder="••••••••" />
-              </div>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label class="a-label" for="newPwd">Nouveau mot de passe</label>
-                  <input type="password" class="form-control" id="newPwd" placeholder="••••••••" />
-                </div>
-                <div class="col-sm-6">
-                  <label class="a-label" for="confPwd">Confirmer</label>
-                  <input type="password" class="form-control" id="confPwd" placeholder="••••••••" />
-                </div>
-              </div>
-              <div class="form-check form-switch mt-3">
-                <input class="form-check-input" type="checkbox" id="twofa" checked />
-                <label class="form-check-label" for="twofa">Authentification à deux facteurs (OTP)</label>
-              </div>
-              <button type="submit" class="a-btn a-btn-primary mt-3"><i class="bi bi-shield-lock"></i> Mettre à jour</button>
-            </form>
-          </div>
-
-          <div class="a-card a-card-pad">
-            <h2 class="a-section-title">Préférences</h2>
-            <div class="mb-3">
-              <label class="a-label" for="lang">Langue</label>
-              <select class="form-select" id="lang">
-                <option selected>Français</option>
-                <option>English</option>
-              </select>
-            </div>
-            <div class="mb-1">
-              <label class="a-label" for="tz">Fuseau horaire</label>
-              <select class="form-select" id="tz">
-                <option selected>(GMT+01:00) Cotonou, Bénin</option>
-                <option>(GMT+00:00) UTC</option>
-                <option>(GMT+01:00) Paris</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="a-card a-card-pad mb-3">
-            <h2 class="a-section-title">Notifications</h2>
-            <div class="a-setting"><div><div class="fw-semibold">Nouvelles inscriptions d'ateliers</div><div class="small text-muted">Par e-mail</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Demandes de retrait</div><div class="small text-muted">Par e-mail + push</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Messages support</div><div class="small text-muted">Push uniquement</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Rapport hebdomadaire</div><div class="small text-muted">Chaque lundi matin</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox"></div></div>
-          </div>
-
-          <div class="a-card a-card-pad">
-            <h2 class="a-section-title">Plateforme</h2>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label class="a-label" for="fee">Frais par commande</label>
-                <div class="input-group">
-                  <input type="number" class="form-control" id="fee" value="100" />
-                  <span class="input-group-text">FCFA</span>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label class="a-label" for="devise">Devise</label>
-                <select class="form-select" id="devise"><option selected>FCFA (XOF)</option></select>
-              </div>
-            </div>
-            <button class="a-btn a-btn-primary mt-3" data-action="enregistrer les paramètres"><i class="bi bi-check-lg"></i> Enregistrer</button>
-          </div>
+      <div class="a-card">
+        <div class="a-table-wrap">
+          <table class="a-table" id="paramTable">
+            <thead><tr><th>Label</th><th>Clé</th><th>Valeur</th><th>Type</th><th class="text-end">Actions</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <div class="a-empty" style="display:none;">Aucun paramètre.</div>
         </div>
       </div>
     </main>
   </div>
 
+  <!-- Modale : créer / modifier un paramètre -->
+  <div class="a-modal" id="paramModal">
+    <div class="a-modal-box">
+      <div class="a-modal-head">
+        <h3 id="paramModalTitle">Modifier le paramètre</h3>
+        <button class="a-modal-x" data-modal-close aria-label="Fermer"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="a-modal-body">
+        <form id="paramForm">
+          <input type="hidden" id="pId" />
+          <div class="mb-3">
+            <label class="a-label" for="pLabel">Label</label>
+            <input type="text" class="form-control" id="pLabel" placeholder="Description du paramètre" required />
+          </div>
+          <div class="mb-3">
+            <label class="a-label" for="pKey">Clé (key)</label>
+            <select class="form-select mono" id="pKey" required></select>
+          </div>
+          <div class="mb-3">
+            <label class="a-label" for="pType">Type (input)</label>
+            <select class="form-select" id="pType">
+              <option value="numeric">numeric</option>
+              <option value="float">float</option>
+              <option value="text">text</option>
+              <option value="object">object</option>
+              <option value="array">array</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="a-label" for="pValue">Valeur (JSON)</label>
+            <textarea class="form-control mono" id="pValue" rows="4"></textarea>
+            <div class="form-text" id="pValueHint">Saisir une valeur JSON valide (ex. [2], ["texte"], {"229": ["MTN"]}).</div>
+          </div>
+          <div class="d-flex gap-2 justify-content-end">
+            <button type="button" class="a-btn a-btn-ghost" data-modal-close>Annuler</button>
+            <button type="submit" class="a-btn a-btn-primary"><i class="bi bi-check-lg"></i> Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="js/admin.js"></script>
+  <script>
+    const PARAMS = [
+      {id:1, label:"Nombre maximum de compte par compagnie", key:"NUMBER_ACCOUNT_MAXIMUM_PER_COMPANY", value:"[2]", input:"numeric"},
+      {id:2, label:"Durée de lien de saisie des mesures en ligne", key:"DATA_ENTRY_LINK_DURATION", value:"[30]", input:"numeric"},
+      {id:3, label:"Lien du site visible par le client à distance", key:"ONLINE_URL", value:"[\"http://localhost:5174\"]", input:"text"},
+      {id:4, label:"Les commissions pour les frais de mobile money", key:"FEES_MOBILE_MONEY", value:"[\"1.2\"]", input:"numeric"},
+      {id:5, label:"Les commissions pour les frais de carte de crédit", key:"FEES_CREDIT_CARD", value:"[\"1.2\"]", input:"numeric"},
+      {id:8, label:"Liste des opérateurs pour les règlements par mobile money", key:"PAYOUT_MOMO_OPERATORS", value:"{\"229\": [\"MTN\"]}", input:"object"},
+      {id:9, label:"Liste des fournisseurs disponibles pour une demande de retrait", key:"WITHDRAWAL_REQUEST_PROVIDERS", value:"[{\"info\": \"\", \"label\": \"MTN MoMo\", \"fields\": {\"account\": \"\", \"country\": \"229\"}}]", input:"object"},
+      {id:10, label:"Liste des fournisseurs disponibles pour un paiement", key:"PAYMENT_REQUEST_PROVIDERS", value:"[{\"info\": \"<div style=\\\"font-family: Arial, sans-serif;\\\"></div>\", \"label\": \"MTN MoMo\"}]", input:"object"},
+      {id:11, label:"Durée de lien de paiement en ligne (jours)", key:"PAYMENT_LINK_DURATION", value:"[2]", input:"numeric"},
+      {id:12, label:"Différents modes de paiement", key:"PAYMENT_MODE", value:"[\"MOBILE_MONEY\", \"CASH\"]", input:"array"},
+      {id:13, label:"Délai de validation du paiement (secondes)", key:"PAYMENT_REQUEST_TIMEOUT", value:"[240]", input:"numeric"},
+      {id:15, label:"Frais de livraison", key:"DELIVERY_FEE", value:"[\"50\"]", input:"numeric"},
+      {id:17, label:"Seuil de frais impayés (blocage commande)", key:"ORDER_FEE_BLOCK_THRESHOLD_AMOUNT", value:"[\"5000\"]", input:"numeric"},
+      {id:18, label:"Ancienneté min. de la contribution avant blocage (jours)", key:"ORDER_FEE_BLOCK_THRESHOLD_DAYS", value:"[\"30\"]", input:"numeric"},
+      {id:19, label:"Mode de restriction commande (off / warn / block)", key:"ORDER_FEE_BLOCK_MODE", value:"[\"block\"]", input:"text"}
+    ];
+    const typeCls = {numeric:"s-navy", float:"s-navy", text:"s-grey", object:"s-amber", array:"s-green"};
+    const esc = (s) => (s+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    const tbody = document.querySelector("#paramTable tbody");
+    let editingId = null;
+
+    // Ensemble énuméré des clés de configuration
+    const ALL_KEYS = [
+      "NUMBER_ACCOUNT_MAXIMUM_PER_COMPANY","DATA_ENTRY_LINK_DURATION","ONLINE_URL",
+      "FEES_MOBILE_MONEY","FEES_CREDIT_CARD","PAYOUT_MOMO_OPERATORS",
+      "WITHDRAWAL_REQUEST_PROVIDERS","PAYMENT_REQUEST_PROVIDERS","PAYMENT_LINK_DURATION",
+      "PAYMENT_MODE","PAYMENT_REQUEST_TIMEOUT","DELIVERY_FEE",
+      "ORDER_FEE_BLOCK_THRESHOLD_AMOUNT","ORDER_FEE_BLOCK_THRESHOLD_DAYS","ORDER_FEE_BLOCK_MODE"
+    ];
+    document.getElementById("pKey").innerHTML =
+      '<option value="" disabled>— Choisir une clé —</option>' +
+      ALL_KEYS.map(k => `<option value="${k}">${k}</option>`).join("");
+
+    function render() {
+      tbody.innerHTML = PARAMS.map(p => `
+        <tr>
+          <td>${esc(p.label)}</td>
+          <td><span class="param-key">${esc(p.key)}</span></td>
+          <td><span class="param-val" title="${esc(p.value)}">${esc(p.value)}</span></td>
+          <td><span class="badge-s ${typeCls[p.input]||"s-grey"}">${esc(p.input)}</span></td>
+          <td class="text-end">
+            <div class="d-flex gap-2 justify-content-end">
+              <button class="a-btn a-btn-ghost a-btn-sm" data-edit="${p.id}"><i class="bi bi-pencil"></i> Éditer</button>
+              <button class="a-btn a-btn-red a-btn-sm" data-del="${p.id}"><i class="bi bi-trash"></i></button>
+            </div>
+          </td>
+        </tr>`).join("");
+      tbody.querySelectorAll("[data-edit]").forEach(b => b.addEventListener("click", () => openEdit(+b.getAttribute("data-edit"))));
+      tbody.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", () => delParam(+b.getAttribute("data-del"))));
+    }
+
+    const modal = document.getElementById("paramModal");
+    const show = () => modal.classList.add("show");
+    const hide = () => modal.classList.remove("show");
+
+    function openCreate() {
+      editingId = null;
+      document.getElementById("paramModalTitle").textContent = "Créer un paramètre";
+      document.getElementById("pId").value = "";
+      document.getElementById("pLabel").value = "";
+      document.getElementById("pKey").value = "";
+      document.getElementById("pType").value = "numeric";
+      document.getElementById("pValue").value = "";
+      show();
+    }
+    function openEdit(id) {
+      const p = PARAMS.find(x => x.id===id); if(!p) return;
+      editingId = id;
+      document.getElementById("paramModalTitle").textContent = "Modifier le paramètre";
+      document.getElementById("pId").value = p.id;
+      document.getElementById("pLabel").value = p.label;
+      document.getElementById("pKey").value = p.key;
+      document.getElementById("pType").value = p.input;
+      document.getElementById("pValue").value = p.value;
+      show();
+    }
+    function delParam(id) {
+      if(!confirm("Supprimer ce paramètre ?")) return;
+      const i = PARAMS.findIndex(x => x.id===id);
+      if(i>-1){ PARAMS.splice(i,1); render(); }
+    }
+
+    document.getElementById("paramCreate").addEventListener("click", openCreate);
+
+    document.getElementById("paramForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = document.getElementById("pValue").value.trim();
+      try { JSON.parse(val); } catch(err) {
+        document.getElementById("pValueHint").textContent = "⚠ JSON invalide : " + err.message;
+        document.getElementById("pValueHint").style.color = "var(--a-red)";
+        return;
+      }
+      document.getElementById("pValueHint").style.color = "";
+      const data = {
+        label: document.getElementById("pLabel").value.trim(),
+        key: document.getElementById("pKey").value.trim(),
+        input: document.getElementById("pType").value,
+        value: val
+      };
+      if(editingId){
+        Object.assign(PARAMS.find(x => x.id===editingId), data);
+      } else {
+        const newId = PARAMS.reduce((m,p)=>Math.max(m,p.id),0)+1;
+        PARAMS.push({id:newId, ...data});
+      }
+      render();
+      hide();
+    });
+
+    render();
+  </script>
 </body>
 </html>
