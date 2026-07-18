@@ -128,16 +128,19 @@
     staffForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const nom = (document.getElementById("sNom").value || "").trim();
+      const prenom = (document.getElementById("sPrenom").value || "").trim();
       const email = (document.getElementById("sEmail").value || "").trim();
-      const tel = (document.getElementById("sTel").value || "").trim();
+      const code = (document.getElementById("sCode") ? document.getElementById("sCode").value : "").trim();
+      const num = (document.getElementById("sTel").value || "").trim();
+      const tel = num ? (code + " " + num) : "";
       const role = document.getElementById("sRole").value;
-      if (!nom || !email) return;
-      const ini = nom.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+      if (!nom || !prenom || !email) return;
+      const ini = ((prenom[0] || "") + (nom[0] || "")).toUpperCase();
       const tbody = document.querySelector("#staffTable tbody");
       if (tbody) {
         const tr = document.createElement("tr");
         tr.setAttribute("data-status", "actif");
-        tr.innerHTML = `<td><div class="a-name"><span class="a-avatar">${esc(ini)}</span><span><strong>${esc(nom)}</strong></span></div></td><td>${esc(role)}</td><td>${esc(email)}</td><td>${esc(tel)}</td><td><span class="badge-s s-green">Actif</span></td><td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>`;
+        tr.innerHTML = `<td><div class="a-name"><span class="a-avatar">${esc(ini)}</span><span><strong>${esc(nom)}</strong></span></div></td><td>${esc(prenom)}</td><td>${esc(role)}</td><td>${esc(email)}</td><td>${esc(tel)}</td><td><span class="badge-s s-green">Actif</span></td><td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>`;
         tbody.prepend(tr);
       }
       staffForm.reset();
