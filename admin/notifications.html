@@ -28,6 +28,7 @@
         <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
         <a href="support.html" class=""><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
         <a href="notifications.html" class="active"><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
+        <a href="personnel.html" class=""><i class="bi bi-person-badge-fill"></i><span>Personnel</span></a>
     </nav>
     <div class="a-side-foot">
       <div class="a-side-user">
@@ -49,27 +50,6 @@
       <div class="a-topbar-actions">
         <span class="a-lang">FR</span>
         <div class="a-dropdown">
-          <button class="a-iconbtn a-dd-toggle" aria-label="Notifications">
-            <i class="bi bi-bell"></i><span class="a-dot">3</span>
-          </button>
-          <div class="a-menu">
-            <div class="a-menu-head">Notifications</div>
-            <a href="ateliers.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-shop"></i></span>
-              <span class="n-txt">2 ateliers en attente de validation<span class="n-time d-block">Il y a 5 min</span></span>
-            </a>
-            <a href="finances.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-cash-stack"></i></span>
-              <span class="n-txt">Bazro Design a demandé un retrait de 80 000 FCFA<span class="n-time d-block">Il y a 40 min</span></span>
-            </a>
-            <a href="support.html" class="a-notif">
-              <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
-              <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
-            </a>
-            <div class="a-menu-foot"><a href="notifications.html">Voir toutes les notifications</a></div>
-          </div>
-        </div>
-        <div class="a-dropdown">
           <button class="a-userbtn a-dd-toggle">
             <span class="a-avatar">AD</span>
             <i class="bi bi-chevron-down caret"></i>
@@ -90,50 +70,16 @@
       <div class="a-page-head">
         <div>
           <h1>Notifications</h1>
-          <p>Créez et gérez les notifications envoyées aux ateliers.</p>
+          <p>Liste des notifications envoyées aux ateliers.</p>
         </div>
+        <div class="ms-auto"><button class="a-btn a-btn-primary" data-modal-open="#notifModal"><i class="bi bi-plus-lg"></i> Créer une notification</button></div>
       </div>
-      <div class="row g-3">
-        <div class="col-lg-5">
-          <div class="a-card a-card-pad">
-            <h2 class="a-section-title">Créer une notification</h2>
-            <form id="notifForm">
-              <div class="mb-3">
-                <label class="a-label" for="nTitre">Titre</label>
-                <input type="text" class="form-control" id="nTitre" placeholder="Ex. Maintenance planifiée" required />
-              </div>
-              <div class="mb-3">
-                <label class="a-label" for="nMsg">Message</label>
-                <textarea class="form-control" id="nMsg" rows="4" placeholder="Contenu de la notification…" required></textarea>
-              </div>
-              <div class="mb-3">
-                <label class="a-label" for="nCible">Destinataires</label>
-                <select class="form-select" id="nCible">
-                  <option>Tous les ateliers</option>
-                  <option>Ateliers actifs</option>
-                  <option>Ateliers en attente</option>
-                  <option>Ateliers suspendus</option>
-                  <option>Un atelier précis</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label class="a-label d-block">Canaux</label>
-                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cInapp" checked><label class="form-check-label" for="cInapp">In-app</label></div>
-                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cEmail"><label class="form-check-label" for="cEmail">E-mail</label></div>
-                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cSms"><label class="form-check-label" for="cSms">SMS</label></div>
-              </div>
-              <button type="submit" class="a-btn a-btn-primary"><i class="bi bi-send"></i> Envoyer la notification</button>
-              <div id="notifAlert" class="a-alert-ok mt-3" style="display:none;"><i class="bi bi-check-circle-fill"></i> Notification envoyée.</div>
-            </form>
-          </div>
-        </div>
-        <div class="col-lg-7">
-          <div class="a-card">
-            <div class="a-card-pad" style="padding-bottom:0;"><h2 class="a-section-title">Toutes les notifications</h2></div>
-            <div class="a-table-wrap">
-              <table class="a-table" id="notifTable">
-                <thead><tr><th>Titre</th><th>Destinataires</th><th>Canaux</th><th>Date</th><th>Statut</th></tr></thead>
-                <tbody>
+      <div id="notifAlert" class="a-alert-ok mb-3" style="display:none;"><i class="bi bi-check-circle-fill"></i> Notification envoyée.</div>
+      <div class="a-card">
+        <div class="a-table-wrap">
+          <table class="a-table" id="notifTable">
+            <thead><tr><th>Titre</th><th>Destinataires</th><th>Canaux</th><th>Date</th><th>Statut</th></tr></thead>
+            <tbody>
             <tr>
               <td><strong>Maintenance planifiée dimanche</strong></td>
               <td>Tous les ateliers</td>
@@ -162,13 +108,53 @@
               <td>01 juil. 2026</td>
               <td><span class="badge-s s-navy">Automatique</span></td>
             </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
     </main>
+  </div>
+
+  <!-- Modale : créer une notification -->
+  <div class="a-modal" id="notifModal">
+    <div class="a-modal-box">
+      <div class="a-modal-head">
+        <h3>Créer une notification</h3>
+        <button class="a-modal-x" data-modal-close aria-label="Fermer"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="a-modal-body">
+        <form id="notifForm">
+          <div class="mb-3">
+            <label class="a-label" for="nTitre">Titre</label>
+            <input type="text" class="form-control" id="nTitre" placeholder="Ex. Maintenance planifiée" required />
+          </div>
+          <div class="mb-3">
+            <label class="a-label" for="nMsg">Message</label>
+            <textarea class="form-control" id="nMsg" rows="4" placeholder="Contenu de la notification…" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="a-label" for="nCible">Destinataires</label>
+            <select class="form-select" id="nCible">
+              <option>Tous les ateliers</option>
+              <option>Ateliers actifs</option>
+              <option>Ateliers en attente</option>
+              <option>Ateliers suspendus</option>
+              <option>Un atelier précis</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="a-label d-block">Canaux</label>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cInapp" checked><label class="form-check-label" for="cInapp">In-app</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cEmail"><label class="form-check-label" for="cEmail">E-mail</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cSms"><label class="form-check-label" for="cSms">SMS</label></div>
+          </div>
+          <div class="d-flex gap-2 justify-content-end">
+            <button type="button" class="a-btn a-btn-ghost" data-modal-close>Annuler</button>
+            <button type="submit" class="a-btn a-btn-primary"><i class="bi bi-send"></i> Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <script src="js/admin.js"></script>
