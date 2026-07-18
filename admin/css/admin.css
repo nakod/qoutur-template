@@ -300,6 +300,8 @@ table.a-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
   transform: translateY(12px); transition: transform .15s ease;
 }
 .a-modal.show .a-modal-box { transform: translateY(0); }
+.a-modal-box.a-modal-lg { max-width: 680px; }
+.a-modal-box.a-modal-lg .a-modal-body { padding: 1.75rem; }
 .a-modal-head { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.35rem; border-bottom: 1px solid var(--a-line); }
 .a-modal-head h3 { margin: 0; font-size: 1.1rem; font-weight: 800; }
 .a-modal-x { background: none; border: none; font-size: 1.2rem; color: var(--a-muted); cursor: pointer; line-height: 1; }
