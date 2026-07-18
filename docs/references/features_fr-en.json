@@ -1,0 +1,92 @@
+{
+  "section": {
+    "libelle": {
+      "fr": "Tout ce qu'il faut pour votre atelier",
+      "en": "Everything your workshop needs"
+    },
+    "surtitre": {
+      "fr": "FONCTIONNALITÉS",
+      "en": "FEATURES"
+    }
+  },
+  "features": [
+    {
+      "id": 8,
+      "icon": "book-user",
+      "libelle": {
+        "fr": "Carnet de clients centralisé",
+        "en": "Centralized client directory"
+      },
+      "description": {
+        "fr": "Gardez toute votre clientèle au même endroit : coordonnées, historique de commandes et mesures. Fini les cahiers perdus et les fiches éparpillées.",
+        "en": "Keep your entire clientele in one place: contact details, order history, and measurements. No more lost notebooks or scattered files."
+      },
+      "active": true
+    },
+    {
+      "id": 9,
+      "icon": "ruler",
+      "libelle": {
+        "fr": "Prise de mesures intelligente",
+        "en": "Smart measurement taking"
+      },
+      "description": {
+        "fr": "Enregistrez les mesures de chaque client par catégorie (buste, bas, mesures communes) et par genre. Personnalisez vos propres libellés de mesures selon vos habitudes de travail — le tout illustré et réutilisable d'une commande à l'autre.",
+        "en": "Record each client's measurements by category (top, bottom, common measurements) and by gender. Customize your own measurement labels to match your workflow — all illustrated and reusable from one order to the next."
+      },
+      "active": true
+    },
+    {
+      "id": 10,
+      "icon": "link",
+      "libelle": {
+        "fr": "Saisie de mesures à distance",
+        "en": "Remote measurement entry"
+      },
+      "description": {
+        "fr": "Envoyez un lien sécurisé à votre client : il renseigne lui-même ses mesures depuis son téléphone, sans se déplacer. Vous recevez tout directement dans la commande.",
+        "en": "Send your client a secure link: they enter their own measurements from their phone, without having to travel. You receive everything directly in the order."
+      },
+      "active": true
+    },
+    {
+      "id": 12,
+      "icon": "smartphone",
+      "libelle": {
+        "fr": "Paiement Mobile Money",
+        "en": "Mobile Money payment"
+      },
+      "description": {
+        "fr": "Encaissez vos clients directement par Mobile Money.",
+        "en": "Collect payments directly from your clients via Mobile Money."
+      },
+      "active": true
+    },
+    {
+      "id": 16,
+      "icon": "bell",
+      "libelle": {
+        "fr": "Notifications en temps réel",
+        "en": "Real-time notifications"
+      },
+      "description": {
+        "fr": "Restez informé à chaque étape : nouveau paiement reçu, mesure complétée, commande mise à jour.",
+        "en": "Stay informed at every step: new payment received, measurement completed, order updated."
+      },
+      "active": true
+    },
+    {
+      "id": 17,
+      "icon": "life-buoy",
+      "libelle": {
+        "fr": "Support intégré",
+        "en": "Built-in support"
+      },
+      "description": {
+        "fr": "Une question, un souci ? Ouvrez un ticket depuis l'application et échangez directement avec l'équipe Qoutur.",
+        "en": "A question or an issue? Open a ticket from the app and chat directly with the Qoutur team."
+      },
+      "active": true
+    }
+  ]
+}
