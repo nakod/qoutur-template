@@ -23,15 +23,9 @@
 </head>
 <body>
 
-  <div class="dropdown lang-fab">
-    <button type="button" class="btn btn-q-outline btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-translate me-1"></i><span class="lang-current">FR</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end lang-menu">
-      <li><button type="button" class="dropdown-item lang-option" data-lang="fr">🇫🇷 Français</button></li>
-      <li><button type="button" class="dropdown-item lang-option" data-lang="en">🇬🇧 English</button></li>
-    </ul>
-  </div>
+  <button type="button" class="lang-toggle lang-fab-link">
+    <i class="bi bi-translate me-1"></i><span class="lang-label">EN</span>
+  </button>
 
   <main class="section-sm">
     <div class="container">
@@ -159,12 +153,50 @@
     </div>
   </div>
 
-  <footer class="q-footer mt-4">
-    <div class="container text-center small">
-      <a class="d-inline-block mb-2" href="index.html">
-        <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
-      </a>
-      <p class="mb-0" data-i18n data-fr="© 2026 Qoutur. Paiement Mobile Money sécurisé." data-en="© 2026 Qoutur. Secure Mobile Money payment.">© 2026 Qoutur. Paiement Mobile Money sécurisé.</p>
+  <footer class="q-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="d-inline-block mb-3" href="index.html">
+            <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
+          </a>
+          <p class="small mb-3" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
+          <div class="q-footer-socials">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h6 class="mb-3" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="index.html#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+            <li><a href="index.html#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+            <li><a href="index.html#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="mb-3" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="index.html#faq" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</a></li>
+            <li><a href="contactez-nous.html" data-i18n data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h6 class="mb-3" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="mentions-legales.html" data-i18n data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
+            <li><a href="termes-conditions.html" data-i18n data-fr="Termes et conditions" data-en="Terms &amp; conditions">Termes et conditions</a></li>
+            <li><a href="politique-confidentialite.html" data-i18n data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4 opacity-25" />
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small gap-2">
+        <span data-i18n data-fr="© 2026 Qoutur. Tous droits réservés." data-en="© 2026 Qoutur. All rights reserved.">© 2026 Qoutur. Tous droits réservés.</span>
+        <span data-i18n data-fr="Fait avec ♥ au Bénin" data-en="Made with ♥ in Benin">Fait avec ♥ au Bénin</span>
+      </div>
     </div>
   </footer>
 
