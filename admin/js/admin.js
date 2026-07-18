@@ -78,7 +78,27 @@
     });
   }
 
-  // Formulaire Notifications : ajoute la notif en tête de liste + succès
+  // Modales (popups) : ouverture / fermeture
+  function closeModal(m) { m && m.classList.remove("show"); }
+  document.querySelectorAll("[data-modal-open]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const m = document.querySelector(btn.getAttribute("data-modal-open"));
+      if (m) m.classList.add("show");
+    });
+  });
+  document.querySelectorAll("[data-modal-close]").forEach((btn) => {
+    btn.addEventListener("click", () => closeModal(btn.closest(".a-modal")));
+  });
+  document.querySelectorAll(".a-modal").forEach((m) => {
+    m.addEventListener("click", (e) => { if (e.target === m) closeModal(m); });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") document.querySelectorAll(".a-modal.show").forEach(closeModal);
+  });
+  const fdate = () => new Date().toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
+  const esc = (s) => (s || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  // Créer une notification (popup) : ajoute en tête de liste
   const notifForm = document.getElementById("notifForm");
   if (notifForm) {
     notifForm.addEventListener("submit", (e) => {
@@ -92,13 +112,38 @@
       const tbody = document.querySelector("#notifTable tbody");
       if (tbody) {
         const tr = document.createElement("tr");
-        const today = new Date().toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
-        tr.innerHTML = `<td><strong>${titre.replace(/</g,"&lt;")}</strong></td><td>${cible}</td><td>${canaux}</td><td>${today}</td><td><span class="badge-s s-green">Envoyée</span></td>`;
+        tr.innerHTML = `<td><strong>${esc(titre)}</strong></td><td>${cible}</td><td>${canaux}</td><td>${fdate()}</td><td><span class="badge-s s-green">Envoyée</span></td>`;
         tbody.prepend(tr);
       }
-      const a = document.getElementById("notifAlert");
-      if (a) a.style.display = "flex";
       notifForm.reset();
+      closeModal(notifForm.closest(".a-modal"));
+      const a = document.getElementById("notifAlert");
+      if (a) { a.style.display = "flex"; setTimeout(() => { a.style.display = "none"; }, 4000); }
+    });
+  }
+
+  // Créer un membre du personnel (popup)
+  const staffForm = document.getElementById("staffForm");
+  if (staffForm) {
+    staffForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nom = (document.getElementById("sNom").value || "").trim();
+      const email = (document.getElementById("sEmail").value || "").trim();
+      const tel = (document.getElementById("sTel").value || "").trim();
+      const role = document.getElementById("sRole").value;
+      if (!nom || !email) return;
+      const ini = nom.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+      const tbody = document.querySelector("#staffTable tbody");
+      if (tbody) {
+        const tr = document.createElement("tr");
+        tr.setAttribute("data-status", "actif");
+        tr.innerHTML = `<td><div class="a-name"><span class="a-avatar">${esc(ini)}</span><span><strong>${esc(nom)}</strong></span></div></td><td>${esc(role)}</td><td>${esc(email)}</td><td>${esc(tel)}</td><td><span class="badge-s s-green">Actif</span></td><td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>`;
+        tbody.prepend(tr);
+      }
+      staffForm.reset();
+      closeModal(staffForm.closest(".a-modal"));
+      const a = document.getElementById("staffAlert");
+      if (a) { a.style.display = "flex"; setTimeout(() => { a.style.display = "none"; }, 4000); }
     });
   }
 
