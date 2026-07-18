@@ -29,7 +29,10 @@
       <a class="q-brand navbar-brand" href="index.html">
         <img src="images/qoutur-icon.png" alt="Qoutur" class="q-logo-img" /><span>QOUTUR</span>
       </a>
-      <a class="btn btn-q-outline px-3 py-2" href="index.html"><i class="bi bi-arrow-left me-1"></i>Accueil</a>
+      <div class="d-flex align-items-center gap-3">
+        <button type="button" class="lang-toggle lang-link"><i class="bi bi-translate me-1"></i><span class="lang-label">EN</span></button>
+        <a class="btn btn-q-outline px-3 py-2" href="index.html"><i class="bi bi-arrow-left me-1"></i><span data-i18n data-fr="Accueil" data-en="Home">Accueil</span></a>
+      </div>
     </div>
   </nav>
 
@@ -87,27 +90,47 @@
   <!-- ============ FOOTER ============ -->
   <footer class="q-footer">
     <div class="container">
-      <div class="row g-4 justify-content-between">
-        <div class="col-lg-5">
+      <div class="row g-4">
+        <div class="col-lg-4">
           <a class="d-inline-block mb-3" href="index.html">
-            <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:44px;width:auto;" />
+            <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
           </a>
-          <p class="small mb-0">La plateforme qui digitalise le métier de tailleur.</p>
+          <p class="small mb-3" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
+          <div class="q-footer-socials">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
-        <div class="col-lg-auto text-lg-end">
-          <h6 class="mb-3">Ressource</h6>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h6 class="mb-3" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
           <ul class="list-unstyled small d-grid gap-2">
-            <li><a href="index.html#faq">FAQ</a></li>
-            <li><a href="contactez-nous.html">Contactez-nous</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
-            <li><a href="termes-conditions.html">Termes et conditions</a></li>
-            <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="index.html#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+            <li><a href="index.html#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+            <li><a href="index.html#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="mb-3" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="index.html#faq" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</a></li>
+            <li><a href="contactez-nous.html" data-i18n data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h6 class="mb-3" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
+          <ul class="list-unstyled small d-grid gap-2">
+            <li><a href="mentions-legales.html" data-i18n data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
+            <li><a href="termes-conditions.html" data-i18n data-fr="Termes et conditions" data-en="Terms &amp; conditions">Termes et conditions</a></li>
+            <li><a href="politique-confidentialite.html" data-i18n data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
           </ul>
         </div>
       </div>
       <hr class="border-secondary my-4 opacity-25" />
-      <div class="d-flex justify-content-center small">
-        <span class="text-center">© 2026 Qoutur. Tous droits réservés.</span>
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small gap-2">
+        <span data-i18n data-fr="© 2026 Qoutur. Tous droits réservés." data-en="© 2026 Qoutur. All rights reserved.">© 2026 Qoutur. Tous droits réservés.</span>
+        <span data-i18n data-fr="Fait avec ♥ au Bénin" data-en="Made with ♥ in Benin">Fait avec ♥ au Bénin</span>
       </div>
     </div>
   </footer>
