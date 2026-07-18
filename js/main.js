@@ -28,16 +28,17 @@
       if (val !== null) el.setAttribute("placeholder", val);
     });
 
-    // Bouton bascule simple (compat)
+    // Lien/bouton de bascule : affiche la LANGUE CIBLE (EN sur une page FR)
+    const target = lang === "fr" ? "EN" : "FR";
     document.querySelectorAll(".lang-toggle").forEach((b) => {
-      b.textContent = lang === "fr" ? "EN" : "FR";
+      const label = b.querySelector(".lang-label");
+      if (label) label.textContent = target; else b.textContent = target;
       b.setAttribute("aria-label", lang === "fr" ? "Switch to English" : "Passer en français");
+      b.setAttribute("title", lang === "fr" ? "English" : "Français");
     });
 
-    // Dropdown de langue : libellé courant + option active
-    document.querySelectorAll(".lang-current").forEach((el) => {
-      el.textContent = lang.toUpperCase();
-    });
+    // (compat) Dropdown de langue éventuel
+    document.querySelectorAll(".lang-current").forEach((el) => { el.textContent = lang.toUpperCase(); });
     document.querySelectorAll(".lang-option").forEach((opt) => {
       opt.classList.toggle("active", opt.getAttribute("data-lang") === lang);
     });
