@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D2845" />
+  <title>Qoutur Admin — Dashboard</title>
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon-180x180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <aside class="a-sidebar">
+    <a href="index.html" class="a-brand">
+      <img src="../images/qoutur-logo-blanc.png" alt="Qoutur" />
+    </a>
+    <nav class="a-nav">
+        <a href="index.html" class="active"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+        <a href="ateliers.html" class=""><i class="bi bi-shop"></i><span>Ateliers</span></a>
+        <a href="commandes.html" class=""><i class="bi bi-bag-check"></i><span>Commandes</span></a>
+        <a href="clients.html" class=""><i class="bi bi-people-fill"></i><span>Clients</span></a>
+        <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
+        <a href="support.html" class=""><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
+    </nav>
+    <div class="a-side-foot">
+      <div class="a-side-user">
+        <span class="a-avatar">AD</span>
+        <div>
+          <div style="color:#fff;font-weight:600;font-size:.9rem;">Admin Qoutur</div>
+          <a href="../index.html" style="color:rgba(255,255,255,.6);font-size:.8rem;"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="a-backdrop"></div>
+
+  <div class="a-main">
+    <header class="a-topbar">
+      <button class="a-burger" aria-label="Menu"><i class="bi bi-list"></i></button>
+      <h1 class="a-title">Dashboard</h1>
+      <div class="a-search"><i class="bi bi-search"></i><input type="search" placeholder="Rechercher…" /></div>
+          <div class="a-topbar-actions">
+        <span class="a-lang">FR</span>
+        <div class="a-dropdown">
+          <button class="a-iconbtn a-dd-toggle" aria-label="Notifications">
+            <i class="bi bi-bell"></i><span class="a-dot">3</span>
+          </button>
+          <div class="a-menu">
+            <div class="a-menu-head">Notifications</div>
+            <a href="ateliers.html" class="a-notif">
+              <span class="n-ico"><i class="bi bi-shop"></i></span>
+              <span class="n-txt">2 ateliers en attente de validation<span class="n-time d-block">Il y a 5 min</span></span>
+            </a>
+            <a href="finances.html" class="a-notif">
+              <span class="n-ico"><i class="bi bi-cash-stack"></i></span>
+              <span class="n-txt">Bazro Design a demandé un retrait de 80 000 FCFA<span class="n-time d-block">Il y a 40 min</span></span>
+            </a>
+            <a href="support.html" class="a-notif">
+              <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
+              <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
+            </a>
+            <div class="a-menu-foot"><a href="support.html">Tout marquer comme lu</a></div>
+          </div>
+        </div>
+        <div class="a-dropdown">
+          <button class="a-userbtn a-dd-toggle">
+            <span class="a-avatar">AD</span>
+            <i class="bi bi-chevron-down caret"></i>
+          </button>
+          <div class="a-menu">
+            <div class="a-menu-head">Admin Qoutur<small>Administratrice</small></div>
+            <div class="a-menu-sep"></div>
+            <a href="profil.html"><i class="bi bi-person"></i> Mon profil</a>
+            <a href="parametres.html"><i class="bi bi-gear"></i> Paramètres</a>
+            <div class="a-menu-sep"></div>
+            <a href="../index.html" class="logout"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="a-content">
+      <div class="a-page-head">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Vue d'ensemble de la plateforme Qoutur.</p>
+        </div>
+      </div>
+      <!-- KPI -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3">
+          <div class="a-card a-card-pad dash-kpi h-100">
+            <div class="lbl">Ateliers actifs</div>
+            <div class="val">312</div>
+            <div class="delta" style="color:#a8792e;">+8 en attente de validation</div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="a-card a-card-pad dash-kpi h-100">
+            <div class="lbl">Commandes ce mois</div>
+            <div class="val">4 208</div>
+            <div class="delta" style="color:#1f8a4c;">+12% vs mois dernier</div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="a-card a-card-pad dash-kpi h-100">
+            <div class="lbl">Volume (GMV)</div>
+            <div class="val">86,4 M FCFA</div>
+            <div class="delta" style="color:#1f8a4c;">+9% vs mois dernier</div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="a-card a-card-pad dash-kpi h-100">
+            <div class="lbl">Revenu plateforme</div>
+            <div class="val">1 240 000 FCFA</div>
+            <div class="delta" style="color:#1f8a4c;">+5% vs mois dernier</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graphique + Alertes -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-7">
+          <div class="a-card a-card-pad h-100">
+            <h2 class="a-section-title">Commandes — 7 derniers jours</h2>
+            <div class="dash-chart">
+              <div class="bar-col"><div class="bar" style="height:62%;"></div><div class="bar-lbl">Lun</div></div>
+              <div class="bar-col"><div class="bar" style="height:80%;"></div><div class="bar-lbl">Mar</div></div>
+              <div class="bar-col"><div class="bar" style="height:45%;"></div><div class="bar-lbl">Mer</div></div>
+              <div class="bar-col"><div class="bar" style="height:90%;"></div><div class="bar-lbl">Jeu</div></div>
+              <div class="bar-col"><div class="bar" style="height:70%;"></div><div class="bar-lbl">Ven</div></div>
+              <div class="bar-col"><div class="bar" style="height:55%;"></div><div class="bar-lbl">Sam</div></div>
+              <div class="bar-col"><div class="bar" style="height:95%;"></div><div class="bar-lbl">Dim</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="a-card a-card-pad dash-alerts h-100">
+            <h2 class="a-section-title" style="color:#fff;">Alertes plateforme</h2>
+            <a href="ateliers.html" class="a-alert">
+              <span class="ico">!</span>
+              <div class="flex-grow-1"><div style="font-weight:600;font-size:.9rem;">2 ateliers en attente de validation</div><div class="sub">KYC à vérifier</div></div>
+              <span class="chev">›</span>
+            </a>
+            <a href="finances.html" class="a-alert">
+              <span class="ico">₣</span>
+              <div class="flex-grow-1"><div style="font-weight:600;font-size:.9rem;">1 demande de retrait en attente</div><div class="sub">À traiter sous 48h</div></div>
+              <span class="chev">›</span>
+            </a>
+            <a href="support.html" class="a-alert">
+              <span class="ico">✉</span>
+              <div class="flex-grow-1"><div style="font-weight:600;font-size:.9rem;">3 messages non lus</div><div class="sub">Support tailleurs</div></div>
+              <span class="chev">›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activité récente -->
+      <div class="a-card a-card-pad dash-activity">
+        <h2 class="a-section-title">Activité récente</h2>
+        <div class="ev"><span class="dot" style="background:#1f8a4c;"></span><div class="flex-grow-1">Chic Couture a reçu une nouvelle commande (18 000 FCFA)</div><span class="time">Il y a 12 min</span></div>
+        <div class="ev"><span class="dot" style="background:#a8792e;"></span><div class="flex-grow-1">Élégance Tailors a soumis une demande de validation</div><span class="time">Il y a 40 min</span></div>
+        <div class="ev"><span class="dot" style="background:#c9963f;"></span><div class="flex-grow-1">Bazro Design a demandé un retrait de 80 000 FCFA</div><span class="time">Il y a 1h</span></div>
+        <div class="ev"><span class="dot" style="background:#d64545;"></span><div class="flex-grow-1">Wax &amp; Fils a été suspendu (solde négatif prolongé)</div><span class="time">Il y a 3h</span></div>
+        <div class="ev"><span class="dot" style="background:#1f8a4c;"></span><div class="flex-grow-1">Maître SISI a réglé ses frais de plateforme (100 FCFA)</div><span class="time">Il y a 5h</span></div>
+        <div class="ev"><span class="dot" style="background:#1f8a4c;"></span><div class="flex-grow-1">Naomi Créations a rejoint la plateforme</div><span class="time">Hier</span></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

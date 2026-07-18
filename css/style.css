@@ -259,18 +259,28 @@ a:hover { color: var(--q-gold-600); }
 .q-accordion .accordion-body { color: var(--q-gray-500); }
 
 /* ---------- Bouton de langue ---------- */
-.lang-toggle { min-width: 52px; font-weight: 700; letter-spacing: .04em; }
-
-/* Dropdown de langue */
-.dropdown-toggle .lang-current { font-weight: 700; letter-spacing: .04em; }
-.lang-menu { min-width: 9rem; border: 1px solid rgba(13,40,69,0.08); box-shadow: var(--q-shadow); }
-.lang-menu .lang-option { font-weight: 500; padding: .5rem 1rem; }
-.lang-menu .lang-option.active,
-.lang-menu .lang-option:active { background: var(--q-cream); color: var(--q-navy); font-weight: 700; }
+/* Lien de langue (simple lien vers l'autre langue) */
+.lang-link {
+  background: none; border: none; padding: 0;
+  color: var(--q-navy); font-weight: 700; letter-spacing: .04em;
+  display: inline-flex; align-items: center; cursor: pointer;
+}
+.lang-link:hover { color: var(--q-gold-600); text-decoration: underline; }
 
 /* Version flottante (pages mesures & paiement) */
-.lang-fab { position: fixed; top: 1rem; right: 1rem; z-index: 1050; }
-.lang-fab .dropdown-toggle { background: var(--q-white); box-shadow: var(--q-shadow-sm); }
+.lang-fab-link {
+  position: fixed; top: 1rem; right: 1rem; z-index: 1050;
+  background: var(--q-white); border: 1px solid rgba(13,40,69,0.10);
+  border-radius: 999px; padding: .35rem .85rem;
+  color: var(--q-navy); font-weight: 700; letter-spacing: .04em;
+  display: inline-flex; align-items: center; cursor: pointer;
+  box-shadow: var(--q-shadow-sm);
+}
+.lang-fab-link:hover { color: var(--q-gold-600); border-color: var(--q-gold); }
+
+/* compat ancien dropdown de langue */
+.lang-menu { min-width: 9rem; border: 1px solid rgba(13,40,69,0.08); box-shadow: var(--q-shadow); }
+.lang-menu .lang-option.active { background: var(--q-cream); font-weight: 700; }
 
 /* ---------- CTA band ---------- */
 .q-cta {
@@ -297,7 +307,15 @@ a:hover { color: var(--q-gold-600); }
 }
 .q-footer a { color: rgba(255,255,255,0.75); }
 .q-footer a:hover { color: var(--q-gold); }
-.q-footer h6 { color: var(--q-white); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; }
+.q-footer h6 { color: var(--q-gold); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; }
+.q-footer-socials { display: flex; gap: .6rem; }
+.q-footer-socials a {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.8);
+}
+.q-footer-socials a:hover { background: var(--q-gold); color: var(--q-navy); }
 
 /* =========================================================
    PAGE MESURES
