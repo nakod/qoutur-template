@@ -78,6 +78,30 @@
     });
   }
 
+  // Formulaire Notifications : ajoute la notif en tête de liste + succès
+  const notifForm = document.getElementById("notifForm");
+  if (notifForm) {
+    notifForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const titre = (document.getElementById("nTitre").value || "").trim();
+      const cible = document.getElementById("nCible").value;
+      const canaux = ["cInapp:In-app", "cEmail:E-mail", "cSms:SMS"]
+        .filter((c) => document.getElementById(c.split(":")[0]).checked)
+        .map((c) => c.split(":")[1]).join(" · ") || "In-app";
+      if (!titre) return;
+      const tbody = document.querySelector("#notifTable tbody");
+      if (tbody) {
+        const tr = document.createElement("tr");
+        const today = new Date().toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
+        tr.innerHTML = `<td><strong>${titre.replace(/</g,"&lt;")}</strong></td><td>${cible}</td><td>${canaux}</td><td>${today}</td><td><span class="badge-s s-green">Envoyée</span></td>`;
+        tbody.prepend(tr);
+      }
+      const a = document.getElementById("notifAlert");
+      if (a) a.style.display = "flex";
+      notifForm.reset();
+    });
+  }
+
   // Actions de démonstration (valider / suspendre / retrait…)
   document.querySelectorAll("[data-action]").forEach((btn) => {
     btn.addEventListener("click", () => {

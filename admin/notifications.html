@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0D2845" />
-  <title>Qoutur Admin — Paramètres</title>
+  <title>Qoutur Admin — Notifications</title>
   <link rel="icon" href="../images/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon-180x180.png" />
@@ -27,7 +27,7 @@
         <a href="clients.html" class=""><i class="bi bi-people-fill"></i><span>Clients</span></a>
         <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
         <a href="support.html" class=""><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
-        <a href="notifications.html" class=""><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
+        <a href="notifications.html" class="active"><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
     </nav>
     <div class="a-side-foot">
       <div class="a-side-user">
@@ -44,7 +44,7 @@
   <div class="a-main">
     <header class="a-topbar">
       <button class="a-burger" aria-label="Menu"><i class="bi bi-list"></i></button>
-      <h1 class="a-title">Paramètres</h1>
+      <h1 class="a-title">Notifications</h1>
       <div class="a-search"><i class="bi bi-search"></i><input type="search" placeholder="Rechercher…" /></div>
       <div class="a-topbar-actions">
         <span class="a-lang">FR</span>
@@ -66,7 +66,7 @@
               <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
               <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
             </a>
-            <div class="a-menu-foot"><a href="support.html">Tout marquer comme lu</a></div>
+            <div class="a-menu-foot"><a href="notifications.html">Voir toutes les notifications</a></div>
           </div>
         </div>
         <div class="a-dropdown">
@@ -89,82 +89,82 @@
     <main class="a-content">
       <div class="a-page-head">
         <div>
-          <h1>Paramètres</h1>
-          <p>Sécurité, notifications et préférences de la plateforme.</p>
+          <h1>Notifications</h1>
+          <p>Créez et gérez les notifications envoyées aux ateliers.</p>
         </div>
       </div>
       <div class="row g-3">
-        <div class="col-lg-6">
-          <div class="a-card a-card-pad mb-3">
-            <h2 class="a-section-title">Sécurité</h2>
-            <form id="secForm">
+        <div class="col-lg-5">
+          <div class="a-card a-card-pad">
+            <h2 class="a-section-title">Créer une notification</h2>
+            <form id="notifForm">
               <div class="mb-3">
-                <label class="a-label" for="curPwd">Mot de passe actuel</label>
-                <input type="password" class="form-control" id="curPwd" placeholder="••••••••" />
+                <label class="a-label" for="nTitre">Titre</label>
+                <input type="text" class="form-control" id="nTitre" placeholder="Ex. Maintenance planifiée" required />
               </div>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label class="a-label" for="newPwd">Nouveau mot de passe</label>
-                  <input type="password" class="form-control" id="newPwd" placeholder="••••••••" />
-                </div>
-                <div class="col-sm-6">
-                  <label class="a-label" for="confPwd">Confirmer</label>
-                  <input type="password" class="form-control" id="confPwd" placeholder="••••••••" />
-                </div>
+              <div class="mb-3">
+                <label class="a-label" for="nMsg">Message</label>
+                <textarea class="form-control" id="nMsg" rows="4" placeholder="Contenu de la notification…" required></textarea>
               </div>
-              <div class="form-check form-switch mt-3">
-                <input class="form-check-input" type="checkbox" id="twofa" checked />
-                <label class="form-check-label" for="twofa">Authentification à deux facteurs (OTP)</label>
+              <div class="mb-3">
+                <label class="a-label" for="nCible">Destinataires</label>
+                <select class="form-select" id="nCible">
+                  <option>Tous les ateliers</option>
+                  <option>Ateliers actifs</option>
+                  <option>Ateliers en attente</option>
+                  <option>Ateliers suspendus</option>
+                  <option>Un atelier précis</option>
+                </select>
               </div>
-              <button type="submit" class="a-btn a-btn-primary mt-3"><i class="bi bi-shield-lock"></i> Mettre à jour</button>
+              <div class="mb-3">
+                <label class="a-label d-block">Canaux</label>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cInapp" checked><label class="form-check-label" for="cInapp">In-app</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cEmail"><label class="form-check-label" for="cEmail">E-mail</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="cSms"><label class="form-check-label" for="cSms">SMS</label></div>
+              </div>
+              <button type="submit" class="a-btn a-btn-primary"><i class="bi bi-send"></i> Envoyer la notification</button>
+              <div id="notifAlert" class="a-alert-ok mt-3" style="display:none;"><i class="bi bi-check-circle-fill"></i> Notification envoyée.</div>
             </form>
           </div>
-
-          <div class="a-card a-card-pad">
-            <h2 class="a-section-title">Préférences</h2>
-            <div class="mb-3">
-              <label class="a-label" for="lang">Langue</label>
-              <select class="form-select" id="lang">
-                <option selected>Français</option>
-                <option>English</option>
-              </select>
-            </div>
-            <div class="mb-1">
-              <label class="a-label" for="tz">Fuseau horaire</label>
-              <select class="form-select" id="tz">
-                <option selected>(GMT+01:00) Cotonou, Bénin</option>
-                <option>(GMT+00:00) UTC</option>
-                <option>(GMT+01:00) Paris</option>
-              </select>
-            </div>
-          </div>
         </div>
-
-        <div class="col-lg-6">
-          <div class="a-card a-card-pad mb-3">
-            <h2 class="a-section-title">Notifications</h2>
-            <div class="a-setting"><div><div class="fw-semibold">Nouvelles inscriptions d'ateliers</div><div class="small text-muted">Par e-mail</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Demandes de retrait</div><div class="small text-muted">Par e-mail + push</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Messages support</div><div class="small text-muted">Push uniquement</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked></div></div>
-            <div class="a-setting"><div><div class="fw-semibold">Rapport hebdomadaire</div><div class="small text-muted">Chaque lundi matin</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox"></div></div>
-          </div>
-
-          <div class="a-card a-card-pad">
-            <h2 class="a-section-title">Plateforme</h2>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label class="a-label" for="fee">Frais par commande</label>
-                <div class="input-group">
-                  <input type="number" class="form-control" id="fee" value="100" />
-                  <span class="input-group-text">FCFA</span>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label class="a-label" for="devise">Devise</label>
-                <select class="form-select" id="devise"><option selected>FCFA (XOF)</option></select>
-              </div>
+        <div class="col-lg-7">
+          <div class="a-card">
+            <div class="a-card-pad" style="padding-bottom:0;"><h2 class="a-section-title">Toutes les notifications</h2></div>
+            <div class="a-table-wrap">
+              <table class="a-table" id="notifTable">
+                <thead><tr><th>Titre</th><th>Destinataires</th><th>Canaux</th><th>Date</th><th>Statut</th></tr></thead>
+                <tbody>
+            <tr>
+              <td><strong>Maintenance planifiée dimanche</strong></td>
+              <td>Tous les ateliers</td>
+              <td>In-app · E-mail</td>
+              <td>12 juil. 2026</td>
+              <td><span class="badge-s s-green">Envoyée</span></td>
+            </tr>
+            <tr>
+              <td><strong>Nouvelle fonctionnalité : retrait instantané</strong></td>
+              <td>Ateliers actifs</td>
+              <td>In-app</td>
+              <td>08 juil. 2026</td>
+              <td><span class="badge-s s-green">Envoyée</span></td>
+            </tr>
+            <tr>
+              <td><strong>Rappel : régularisez vos frais de plateforme</strong></td>
+              <td>Ateliers avec frais dus</td>
+              <td>E-mail · SMS</td>
+              <td>05 juil. 2026</td>
+              <td><span class="badge-s s-green">Envoyée</span></td>
+            </tr>
+            <tr>
+              <td><strong>Bienvenue sur Qoutur</strong></td>
+              <td>Nouveaux ateliers</td>
+              <td>In-app</td>
+              <td>01 juil. 2026</td>
+              <td><span class="badge-s s-navy">Automatique</span></td>
+            </tr>
+                </tbody>
+              </table>
             </div>
-            <button class="a-btn a-btn-primary mt-3" data-action="enregistrer les paramètres"><i class="bi bi-check-lg"></i> Enregistrer</button>
           </div>
         </div>
       </div>

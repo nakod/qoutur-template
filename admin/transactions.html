@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0D2845" />
-  <title>Qoutur Admin — Commandes</title>
+  <title>Qoutur Admin — Transactions</title>
   <link rel="icon" href="../images/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon-180x180.png" />
@@ -23,9 +23,9 @@
     <nav class="a-nav">
         <a href="index.html" class=""><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
         <a href="ateliers.html" class=""><i class="bi bi-shop"></i><span>Ateliers</span></a>
-        <a href="commandes.html" class="active"><i class="bi bi-bag-check"></i><span>Commandes</span></a>
+        <a href="commandes.html" class=""><i class="bi bi-bag-check"></i><span>Commandes</span></a>
         <a href="clients.html" class=""><i class="bi bi-people-fill"></i><span>Clients</span></a>
-        <a href="finances.html" class=""><i class="bi bi-wallet2"></i><span>Finances</span></a>
+        <a href="finances.html" class="active"><i class="bi bi-wallet2"></i><span>Finances</span></a>
         <a href="support.html" class=""><i class="bi bi-chat-dots-fill"></i><span>Support</span><span class="a-badge">3</span></a>
         <a href="notifications.html" class=""><i class="bi bi-megaphone-fill"></i><span>Notifications</span></a>
     </nav>
@@ -44,12 +44,9 @@
   <div class="a-main">
     <header class="a-topbar">
       <button class="a-burger" aria-label="Menu"><i class="bi bi-list"></i></button>
-      <h1 class="a-title">Commandes</h1>
-      <div class="a-search">
-        <i class="bi bi-search"></i>
-        <input type="search" placeholder="Rechercher…" data-search-target="#cmdTable" />
-      </div>
-          <div class="a-topbar-actions">
+      <h1 class="a-title">Transactions</h1>
+      <div class="a-search"><i class="bi bi-search"></i><input type="search" placeholder="Rechercher…" /></div>
+      <div class="a-topbar-actions">
         <span class="a-lang">FR</span>
         <div class="a-dropdown">
           <button class="a-iconbtn a-dd-toggle" aria-label="Notifications">
@@ -69,7 +66,7 @@
               <span class="n-ico"><i class="bi bi-chat-dots"></i></span>
               <span class="n-txt">3 nouveaux messages support<span class="n-time d-block">Il y a 1h</span></span>
             </a>
-            <div class="a-menu-foot"><a href="support.html">Tout marquer comme lu</a></div>
+            <div class="a-menu-foot"><a href="notifications.html">Voir toutes les notifications</a></div>
           </div>
         </div>
         <div class="a-dropdown">
@@ -90,74 +87,106 @@
     </header>
 
     <main class="a-content">
+      <a href="finances.html" class="a-btn a-btn-ghost a-btn-sm mb-3"><i class="bi bi-arrow-left"></i> Retour à Finances</a>
       <div class="a-page-head">
         <div>
-          <h1>Commandes</h1>
-          <p>Suivez les commandes et leur statut de règlement.</p>
+          <h1>Transactions</h1>
+          <p>Historique complet des transactions de la plateforme.</p>
         </div>
       </div>
-      <div class="a-filters" data-filter-group data-target="#cmdTable">
+      <div class="a-filters" data-filter-group data-target="#txTable">
         <button class="a-filter active" data-value="all">Toutes</button>
-        <button class="a-filter" data-value="impaye">Impayé</button>
-        <button class="a-filter" data-value="partiel">Partiel</button>
-        <button class="a-filter" data-value="paye">Payé</button>
+        <button class="a-filter" data-value="frais">Frais</button>
+        <button class="a-filter" data-value="retrait">Retraits</button>
       </div>
       <div class="a-card">
-        <div class="a-table-wrap" id="cmdTable">
+        <div class="a-table-wrap" id="txTable">
           <table class="a-table">
-            <thead><tr><th>N°</th><th>Atelier</th><th>Client</th><th>Date</th><th>Montant</th><th>Règlement</th></tr></thead>
+            <thead><tr><th>Libellé</th><th>Type</th><th>Opérateur</th><th>Date</th><th>Montant</th><th>Statut</th></tr></thead>
             <tbody>
-            <tr data-status="paye">
-              <td><strong>#128</strong></td>
-              <td>Chic Couture</td>
-              <td>Olivia Bazro</td>
+            <tr data-status="frais">
+              <td>Frais plateforme — Commande #128 (Chic Couture)</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
               <td>14 juil. 2026</td>
-              <td class="amount">18 000 FCFA</td>
-              <td><span class="badge-s s-green">Payé</span></td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
             </tr>
-            <tr data-status="partiel">
-              <td><strong>#127</strong></td>
-              <td>Mateta Couture</td>
-              <td>Joseph Mateta</td>
-              <td>12 juil. 2026</td>
-              <td class="amount">42 000 FCFA</td>
-              <td><span class="badge-s s-amber">Partiel</span></td>
-            </tr>
-            <tr data-status="impaye">
-              <td><strong>#126</strong></td>
-              <td>Sika Prestige</td>
-              <td>Sika Ahouansou</td>
-              <td>09 juil. 2026</td>
-              <td class="amount">25 000 FCFA</td>
-              <td><span class="badge-s s-red">Impayé</span></td>
-            </tr>
-            <tr data-status="paye">
-              <td><strong>#125</strong></td>
-              <td>Atelier SISI</td>
-              <td>Maître SISI</td>
-              <td>08 juil. 2026</td>
-              <td class="amount">60 000 FCFA</td>
-              <td><span class="badge-s s-green">Payé</span></td>
-            </tr>
-            <tr data-status="partiel">
-              <td><strong>#124</strong></td>
-              <td>Tissu Royal</td>
-              <td>Roland Toko</td>
+            <tr data-status="retrait">
+              <td>Retrait approuvé — Tissu Royal</td>
+              <td><span class="badge-s s-grey">Retrait</span></td>
+              <td>MTN MoMo</td>
               <td>07 juil. 2026</td>
-              <td class="amount">15 000 FCFA</td>
-              <td><span class="badge-s s-amber">Partiel</span></td>
+              <td class="amount neg">-120 000 FCFA</td>
+              <td><span class="badge-s s-green">Approuvé</span></td>
             </tr>
-            <tr data-status="impaye">
-              <td><strong>#123</strong></td>
-              <td>Bazro Design</td>
-              <td>Ignace Dossou</td>
+            <tr data-status="frais">
+              <td>Frais plateforme — Commande #127 (Mateta Couture)</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
+              <td>12 juil. 2026</td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
+            </tr>
+            <tr data-status="frais">
+              <td>Frais plateforme — Chic Couture</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
+              <td>06 juil. 2026</td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
+            </tr>
+            <tr data-status="retrait">
+              <td>Retrait rejeté — Sika Prestige</td>
+              <td><span class="badge-s s-grey">Retrait</span></td>
+              <td>Moov Money</td>
               <td>05 juil. 2026</td>
-              <td class="amount">31 000 FCFA</td>
-              <td><span class="badge-s s-red">Impayé</span></td>
+              <td class="amount ">45 000 FCFA</td>
+              <td><span class="badge-s s-red">Rejeté</span></td>
+            </tr>
+            <tr data-status="frais">
+              <td>Frais plateforme — Bazro Design</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
+              <td>04 juil. 2026</td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
+            </tr>
+            <tr data-status="retrait">
+              <td>Retrait approuvé — Atelier SISI</td>
+              <td><span class="badge-s s-grey">Retrait</span></td>
+              <td>MTN MoMo</td>
+              <td>03 juil. 2026</td>
+              <td class="amount neg">-60 000 FCFA</td>
+              <td><span class="badge-s s-green">Approuvé</span></td>
+            </tr>
+            <tr data-status="frais">
+              <td>Frais plateforme — Commande #125 (Atelier SISI)</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
+              <td>08 juil. 2026</td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
+            </tr>
+            <tr data-status="frais">
+              <td>Frais plateforme — Sika Prestige</td>
+              <td><span class="badge-s s-grey">Frais</span></td>
+              <td>—</td>
+              <td>09 juil. 2026</td>
+              <td class="amount pos">+100 FCFA</td>
+              <td><span class="badge-s s-green">Encaissé</span></td>
+            </tr>
+            <tr data-status="retrait">
+              <td>Retrait approuvé — Mateta Couture</td>
+              <td><span class="badge-s s-grey">Retrait</span></td>
+              <td>Celtis Money</td>
+              <td>25 juin 2026</td>
+              <td class="amount neg">-90 000 FCFA</td>
+              <td><span class="badge-s s-green">Approuvé</span></td>
             </tr>
             </tbody>
           </table>
-          <div class="a-empty" style="display:none;">Aucune commande dans cette catégorie.</div>
+          <div class="a-empty" style="display:none;">Aucune transaction dans cette catégorie.</div>
         </div>
       </div>
     </main>
