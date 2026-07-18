@@ -1,0 +1,184 @@
+{
+  "faq": [
+    {
+      "id": 1,
+      "question": {
+        "fr": "Qoutur, c'est quoi exactement ?",
+        "en": "What exactly is Qoutur?"
+      },
+      "answer": {
+        "fr": "Qoutur est une plateforme en ligne qui aide les tailleurs et couturières à gérer leurs clientes, leurs mesures, leurs commandes et leurs paiements, le tout depuis un seul endroit — sans installation.",
+        "en": "Qoutur is an online platform that helps tailors and dressmakers manage their clients, measurements, orders, and payments, all from one place — no installation required."
+      },
+      "active": true
+    },
+    {
+      "id": 2,
+      "question": {
+        "fr": "Ai-je besoin d'installer un logiciel ?",
+        "en": "Do I need to install any software?"
+      },
+      "answer": {
+        "fr": "Non. Qoutur fonctionne directement dans votre navigateur, sur ordinateur comme sur téléphone. Rien à télécharger.",
+        "en": "No. Qoutur works directly in your browser, on both computer and phone. Nothing to download."
+      },
+      "active": true
+    },
+    {
+      "id": 3,
+      "question": {
+        "fr": "Comment fonctionne la prise de mesures ?",
+        "en": "How does measurement tracking work?"
+      },
+      "answer": {
+        "fr": "Vous enregistrez jusqu'à 30 mesures par client, avec des repères visuels qui vous guident pour éviter les erreurs de saisie.",
+        "en": "You can record up to 30 measurements per client, with visual guides to help you avoid entry errors."
+      },
+      "active": true
+    },
+    {
+      "id": 4,
+      "question": {
+        "fr": "Puis-je retrouver l'historique d'une cliente ?",
+        "en": "Can I view a client's history?"
+      },
+      "answer": {
+        "fr": "Oui. Chaque fiche client conserve l'historique des commandes, les mesures et les préférences (modèles, tissus, etc.).",
+        "en": "Yes. Each client profile keeps a history of orders, measurements, and preferences (styles, fabrics, etc.)."
+      },
+      "active": true
+    },
+    {
+      "id": 5,
+      "question": {
+        "fr": "Comment mes clientes peuvent-elles payer ?",
+        "en": "How can my clients pay?"
+      },
+      "answer": {
+        "fr": "Vous pouvez encaisser directement via Mobile Money (Orange Money, MTN, Moov, Wave), même pour des clientes à distance.",
+        "en": "You can collect payments directly via Mobile Money (Orange Money, MTN, Moov, Wave), even from remote clients."
+      },
+      "active": true
+    },
+    {
+      "id": 6,
+      "question": {
+        "fr": "Mes clientes reçoivent-elles une notification quand leur commande est prête ?",
+        "en": "Do my clients get notified when their order is ready?"
+      },
+      "answer": {
+        "fr": "Oui, un rappel automatique est envoyé par SMS ou notification dès que la tenue est terminée.",
+        "en": "Yes, an automatic reminder is sent by SMS or notification as soon as the outfit is finished."
+      },
+      "active": true
+    },
+    {
+      "id": 7,
+      "question": {
+        "fr": "Qoutur est-il payant ?",
+        "en": "Is Qoutur a paid service?"
+      },
+      "answer": {
+        "fr": "L'inscription est gratuite pour commencer. Aucune carte bancaire n'est requise à la création du compte.",
+        "en": "Signing up is free to get started. No credit card is required to create an account."
+      },
+      "active": true
+    },
+    {
+      "id": 8,
+      "question": {
+        "fr": "Mes données sont-elles en sécurité ?",
+        "en": "Is my data secure?"
+      },
+      "answer": {
+        "fr": "Oui, les informations de vos clientes (mesures, coordonnées, historique) sont stockées de manière sécurisée et ne sont accessibles qu'à vous.",
+        "en": "Yes, your clients' information (measurements, contact details, history) is stored securely and is only accessible to you."
+      },
+      "active": true
+    },
+    {
+      "id": 9,
+      "question": {
+        "fr": "Puis-je utiliser Qoutur avec plusieurs employés dans mon atelier ?",
+        "en": "Can I use Qoutur with several employees in my workshop?"
+      },
+      "answer": {
+        "fr": "À préciser selon l'offre actuelle.",
+        "en": "To be confirmed depending on the current plan."
+      },
+      "active": false
+    },
+    {
+      "id": 10,
+      "question": {
+        "fr": "Comment puis-je être accompagné si j'ai un problème ?",
+        "en": "How can I get help if I have a problem?"
+      },
+      "answer": {
+        "fr": "Une équipe support est disponible pour vous accompagner dans la prise en main de l'outil.",
+        "en": "A support team is available to help you get started with the tool."
+      },
+      "active": true
+    },
+    {
+      "id": 11,
+      "question": {
+        "fr": "Qoutur propose-t-il un service de livraison ?",
+        "en": "Does Qoutur offer a delivery service?"
+      },
+      "answer": {
+        "fr": "Oui. Une fois la commande prête, vous pouvez organiser la livraison directement depuis la plateforme, sans passer par un canal externe.",
+        "en": "Yes. Once the order is ready, you can arrange delivery directly from the platform, without going through an external channel."
+      },
+      "active": true
+    },
+    {
+      "id": 12,
+      "question": {
+        "fr": "Comment fonctionne le suivi de la livraison ?",
+        "en": "How does delivery tracking work?"
+      },
+      "answer": {
+        "fr": "Vous assignez la commande à un livreur, et votre cliente peut suivre l'état de sa livraison (en préparation, en cours, livrée) jusqu'à la réception.",
+        "en": "You assign the order to a courier, and your client can track the delivery status (preparing, in progress, delivered) until it arrives."
+      },
+      "active": true
+    },
+    {
+      "id": 13,
+      "question": {
+        "fr": "Puis-je choisir mon propre livreur ou une société de livraison ?",
+        "en": "Can I choose my own courier or a delivery company?"
+      },
+      "answer": {
+        "fr": "À confirmer selon le fonctionnement souhaité (livreurs internes à l'atelier ou sociétés de livraison partenaires).",
+        "en": "To be confirmed depending on the desired setup (in-house couriers or partner delivery companies)."
+      },
+      "active": false
+    },
+    {
+      "id": 14,
+      "question": {
+        "fr": "La cliente est-elle prévenue quand sa commande est en route ?",
+        "en": "Is the client notified when her order is on the way?"
+      },
+      "answer": {
+        "fr": "Oui, un rappel automatique (SMS ou notification) est envoyé dès que la commande est confiée au livreur, puis à la livraison.",
+        "en": "Yes, an automatic reminder (SMS or notification) is sent as soon as the order is handed to the courier, and again upon delivery."
+      },
+      "active": true
+    },
+    {
+      "id": 15,
+      "question": {
+        "fr": "La livraison est-elle disponible partout ?",
+        "en": "Is delivery available everywhere?"
+      },
+      "answer": {
+        "fr": "À préciser (zones couvertes, ville uniquement, national).",
+        "en": "To be confirmed (coverage areas, city-only, or nationwide)."
+      },
+      "active": false
+    }
+  ]
+}
