@@ -54,9 +54,8 @@
   window.qGetLang = getLang;
 
   function initLang() {
-    let lang = "fr";
-    try { lang = localStorage.getItem(LANG_KEY) || "fr"; } catch (e) {}
-    applyLang(lang);
+    // Anglais désactivé : le site est forcé en français
+    applyLang("fr");
     // Bouton bascule simple (compat)
     document.querySelectorAll(".lang-toggle").forEach((b) => {
       b.addEventListener("click", () => applyLang(getLang() === "fr" ? "en" : "fr"));
