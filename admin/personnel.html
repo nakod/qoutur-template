@@ -11,8 +11,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS (CDN navigateur) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    /* Breakpoints alignés sur ceux de Bootstrap pour conserver
+       exactement les mêmes ruptures responsive. */
+    @theme {
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      --breakpoint-2xl: 1400px;
+    }
+  </style>
+
+  <!-- Icônes (indépendantes de Bootstrap CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tw-compat.css" />
   <link rel="stylesheet" href="css/admin.css" />
 </head>
 <body>
@@ -74,7 +90,7 @@
         </div>
         <div class="ms-auto"><button class="a-btn a-btn-primary" data-modal-open="#staffModal"><i class="bi bi-person-plus"></i> Ajouter un personnel</button></div>
       </div>
-      <div id="staffAlert" class="a-alert-ok mb-3" style="display:none;"><i class="bi bi-check-circle-fill"></i> Membre du personnel ajouté.</div>
+      <div id="staffAlert" class="a-alert-ok mb-4" style="display:none;"><i class="bi bi-check-circle-fill"></i> Membre du personnel ajouté.</div>
       <div class="a-filters" data-filter-group data-target="#staffTable">
         <button class="a-filter active" data-value="all">Tous</button>
         <button class="a-filter" data-value="actif">Actifs</button>
@@ -83,7 +99,7 @@
       <div class="a-card">
         <div class="a-table-wrap" id="staffTable">
           <table class="a-table">
-            <thead><tr><th>Nom</th><th>Prénom</th><th>Rôle</th><th>E-mail</th><th>Téléphone</th><th>Statut</th><th class="text-end">Actions</th></tr></thead>
+            <thead><tr><th>Nom</th><th>Prénom</th><th>Rôle</th><th>E-mail</th><th>Téléphone</th><th>Statut</th><th class="text-right">Actions</th></tr></thead>
             <tbody>
             <tr data-status="actif">
               <td><div class="a-name"><span class="a-avatar">AD</span><span><strong>Qoutur</strong></span></div></td>
@@ -92,7 +108,7 @@
               <td>admin@nakod.net</td>
               <td>+229 01 00 00 00 00</td>
               <td><span class="badge-s s-green">Actif</span></td>
-              <td class="text-end"></td>
+              <td class="text-right"></td>
             </tr>
             <tr data-status="actif">
               <td><div class="a-name"><span class="a-avatar">FK</span><span><strong>Koudous</strong></span></div></td>
@@ -101,7 +117,7 @@
               <td>farida@nakod.net</td>
               <td>+229 01 22 33 44 55</td>
               <td><span class="badge-s s-green">Actif</span></td>
-              <td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
+              <td class="text-right"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
             </tr>
             <tr data-status="actif">
               <td><div class="a-name"><span class="a-avatar">NS</span><span><strong>Sossou</strong></span></div></td>
@@ -110,7 +126,7 @@
               <td>nadia@nakod.net</td>
               <td>+229 01 44 55 66 77</td>
               <td><span class="badge-s s-green">Actif</span></td>
-              <td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
+              <td class="text-right"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
             </tr>
             <tr data-status="actif">
               <td><div class="a-name"><span class="a-avatar">RA</span><span><strong>Alabi</strong></span></div></td>
@@ -119,7 +135,7 @@
               <td>rachid@nakod.net</td>
               <td>+229 01 66 77 88 99</td>
               <td><span class="badge-s s-green">Actif</span></td>
-              <td class="text-end"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
+              <td class="text-right"><button class="a-btn a-btn-red a-btn-sm" data-action="suspendre">Suspendre</button></td>
             </tr>
             <tr data-status="inactif">
               <td><div class="a-name"><span class="a-avatar">KA</span><span><strong>Adjovi</strong></span></div></td>
@@ -128,7 +144,7 @@
               <td>kevin@nakod.net</td>
               <td>+229 01 33 22 11 00</td>
               <td><span class="badge-s s-grey">Inactif</span></td>
-              <td class="text-end"><button class="a-btn a-btn-green a-btn-sm" data-action="valider">Réactiver</button></td>
+              <td class="text-right"><button class="a-btn a-btn-green a-btn-sm" data-action="valider">Réactiver</button></td>
             </tr>
             </tbody>
           </table>
@@ -147,22 +163,22 @@
       </div>
       <div class="a-modal-body">
         <form id="staffForm">
-          <div class="row g-3">
-            <div class="col-sm-6">
+          <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 sm:col-span-6">
               <label class="a-label" for="sNom">Nom</label>
               <input type="text" class="form-control" id="sNom" placeholder="Ex. Koudous" required />
             </div>
-            <div class="col-sm-6">
+            <div class="col-span-12 sm:col-span-6">
               <label class="a-label" for="sPrenom">Prénom</label>
               <input type="text" class="form-control" id="sPrenom" placeholder="Ex. Farida" required />
             </div>
           </div>
-          <div class="row g-3 mt-0">
-            <div class="col-sm-6">
+          <div class="grid grid-cols-12 gap-4 mt-0">
+            <div class="col-span-12 sm:col-span-6">
               <label class="a-label" for="sEmail">E-mail</label>
               <input type="email" class="form-control" id="sEmail" placeholder="prenom@nakod.net" required />
             </div>
-            <div class="col-sm-6">
+            <div class="col-span-12 sm:col-span-6">
               <label class="a-label" for="sTel">Téléphone</label>
               <div class="input-group">
                 <select class="form-select" id="sCode" style="max-width:9.5rem;"></select>
@@ -170,7 +186,7 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 mt-3">
+          <div class="mb-4 mt-4">
             <label class="a-label" for="sRole">Rôle</label>
             <select class="form-select" id="sRole">
               <option>Super-administrateur</option>
@@ -180,7 +196,7 @@
               <option>Lecture seule</option>
             </select>
           </div>
-          <div class="d-flex gap-2 justify-content-end">
+          <div class="flex gap-2 justify-end">
             <button type="button" class="a-btn a-btn-ghost" data-modal-close>Annuler</button>
             <button type="submit" class="a-btn a-btn-primary"><i class="bi bi-person-plus"></i> Ajouter</button>
           </div>

@@ -128,7 +128,8 @@ a:hover { color: var(--q-gold-600); }
     radial-gradient(500px 300px at 10% 90%, rgba(217, 208, 191, 0.5), transparent 60%);
   z-index: 0;
 }
-.q-hero > .container { position: relative; z-index: 1; }
+.q-hero > .container,
+.q-hero > .q-container { position: relative; z-index: 1; }
 .q-hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.1; }
 .q-hero .lead { font-size: 1.1rem; color: var(--q-gray-500); max-width: 34rem; }
 
@@ -297,7 +298,8 @@ a:hover { color: var(--q-gold-600); }
   background: radial-gradient(circle, rgba(234,206,129,.35), transparent 70%);
   pointer-events: none;
 }
-.q-cta .row { position: relative; z-index: 1; }
+.q-cta .row,
+.q-cta-inner { position: relative; z-index: 1; }
 
 /* ---------- Footer ---------- */
 .q-footer {

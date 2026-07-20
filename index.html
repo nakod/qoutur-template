@@ -18,31 +18,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS (CDN navigateur) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    /* Breakpoints alignés sur ceux de Bootstrap pour que la conversion
+       des classes col-*-* conserve exactement les mêmes ruptures. */
+    @theme {
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      --breakpoint-2xl: 1400px;
+    }
+  </style>
+
+  <!-- Icônes (indépendantes de Bootstrap CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tw-compat.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- ============ NAVBAR ============ -->
-  <nav class="navbar navbar-expand-lg q-navbar sticky-top">
-    <div class="container">
-      <a class="q-brand navbar-brand" href="index.html">
+  <nav class="q-navbar sticky top-0 z-50">
+    <div class="q-container flex flex-wrap items-center justify-between py-2">
+      <a class="q-brand" href="index.html">
         <img src="images/qoutur-icon.png" alt="Qoutur" class="q-logo-img" />
         <span>QOUTUR</span>
       </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
+      <button data-nav-toggle="nav" class="border-0 bg-transparent p-2 text-2xl leading-none lg:hidden"
+              type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu">
+        <i class="bi bi-list"></i>
       </button>
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
-          <li class="nav-item"><a class="nav-link" href="#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactez-nous.html" aria-label="Contact" title="Contact"><i class="bi bi-envelope fs-6"></i></a></li>
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-q-primary px-3 py-2" href="#inscription" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
+      <div class="hidden w-full lg:flex lg:w-auto" id="nav">
+        <ul class="m-0 flex list-none flex-col gap-2 p-0 py-3 lg:flex-row lg:items-center lg:py-0">
+          <li><a class="nav-link block px-2 py-2" href="#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+          <li><a class="nav-link block px-2 py-2" href="#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+          <li><a class="nav-link block px-2 py-2" href="#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+          <li><a class="nav-link block px-2 py-2" href="contactez-nous.html" aria-label="Contact" title="Contact"><i class="bi bi-envelope text-base"></i></a></li>
+          <li class="mt-2 lg:ms-2 lg:mt-0">
+            <a class="btn btn-q-primary px-4! py-2!" href="#inscription" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
           </li>
         </ul>
       </div>
@@ -51,24 +67,24 @@
 
   <!-- ============ HERO ============ -->
   <header class="q-hero">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <p class="eyebrow mb-3" data-i18n data-fr="L'atelier connecté du tailleur moderne" data-en="The connected workshop for the modern tailor">L'atelier connecté du tailleur moderne</p>
-          <h1 class="mb-3" data-i18n data-fr="Gérez vos clients, mesures et paiements <span class='text-gold'>en un seul endroit</span>" data-en="Manage your clients, measurements and payments <span class='text-gold'>in one place</span>">Gérez vos clients, mesures et paiements <span class="text-gold">en un seul endroit</span></h1>
-          <p class="lead mb-4" data-i18n data-fr="Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort." data-en="Qoutur digitalizes your tailoring workshop: record your clients' measurements, track your orders and get paid via Mobile Money, effortlessly.">Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort.</p>
-          <div class="d-flex flex-wrap gap-3">
+    <div class="q-container">
+      <div class="grid grid-cols-12 items-center gap-12">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="eyebrow mb-4" data-i18n data-fr="L'atelier connecté du tailleur moderne" data-en="The connected workshop for the modern tailor">L'atelier connecté du tailleur moderne</p>
+          <h1 class="mb-4" data-i18n data-fr="Gérez vos clients, mesures et paiements <span class='text-gold'>en un seul endroit</span>" data-en="Manage your clients, measurements and payments <span class='text-gold'>in one place</span>">Gérez vos clients, mesures et paiements <span class="text-gold">en un seul endroit</span></h1>
+          <p class="lead mb-6" data-i18n data-fr="Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort." data-en="Qoutur digitalizes your tailoring workshop: record your clients' measurements, track your orders and get paid via Mobile Money, effortlessly.">Qoutur digitalise votre atelier de couture : enregistrez les mesures de vos clients, suivez vos commandes et encaissez par Mobile Money, sans effort.</p>
+          <div class="flex flex-wrap gap-4">
             <a href="#inscription" class="btn btn-q-primary" data-i18n data-fr="Créer mon atelier" data-en="Create my workshop">Créer mon atelier</a>
           </div>
-          <div class="d-flex flex-wrap gap-4 mt-4 pt-2 text-muted small">
+          <div class="text-muted small mt-6 flex flex-wrap gap-6 pt-2">
             <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Sans installation" data-en="No installation">Sans installation</span></span>
             <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Paiement Mobile Money" data-en="Mobile Money payment">Paiement Mobile Money</span></span>
             <span><i class="bi bi-check-circle-fill text-gold me-1"></i> <span data-i18n data-fr="Sans abonnement" data-en="No subscription">Sans abonnement</span></span>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-span-12 lg:col-span-6">
           <div class="q-hero-card">
-            <div class="q-hero-visual mb-3">
+            <div class="q-hero-visual mb-4">
               <img src="images/qoutur_image_default-1.png" alt="Atelier Qoutur" />
             </div>
           </div>
@@ -79,40 +95,40 @@
 
   <!-- ============ FONCTIONNALITÉS ============ -->
   <section class="section" id="fonctionnalites">
-    <div class="container">
-      <div class="text-center mb-5">
+    <div class="q-container">
+      <div class="mb-12 text-center">
         <p class="eyebrow" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</p>
         <h2 class="section-title" data-i18n data-fr="Tout ce qu'il faut pour votre atelier" data-en="Everything your workshop needs">Tout ce qu'il faut pour votre atelier</h2>
       </div>
-      <div class="row g-4" id="featuresList"></div>
+      <div class="grid grid-cols-12 gap-6" id="featuresList"></div>
     </div>
   </section>
 
   <!-- ============ COMMENT ÇA MARCHE ============ -->
   <section class="section bg-beige" id="etapes">
-    <div class="container">
-      <div class="text-center mb-5">
+    <div class="q-container">
+      <div class="mb-12 text-center">
         <p class="eyebrow" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</p>
         <h2 class="section-title" data-i18n data-fr="Votre atelier en ligne en 3 étapes" data-en="Your online workshop in 3 steps">Votre atelier en ligne en 3 étapes</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-4">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 md:col-span-4">
           <div class="q-card text-center">
-            <span class="q-step-num mb-3">1</span>
+            <span class="q-step-num mb-4">1</span>
             <h5 data-i18n data-fr="Créez votre atelier" data-en="Create your workshop">Créez votre atelier</h5>
             <p class="text-muted mb-0" data-i18n data-fr="Inscrivez-vous en renseignant vos informations et le nom de votre atelier." data-en="Sign up by entering your details and the name of your workshop.">Inscrivez-vous en renseignant vos informations et le nom de votre atelier.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-span-12 md:col-span-4">
           <div class="q-card text-center">
-            <span class="q-step-num mb-3">2</span>
+            <span class="q-step-num mb-4">2</span>
             <h5 data-i18n data-fr="Ajoutez vos clients" data-en="Add your clients">Ajoutez vos clients</h5>
             <p class="text-muted mb-0" data-i18n data-fr="Enregistrez les mesures de tous vos clients." data-en="Record the measurements of all your clients.">Enregistrez les mesures de tous vos clients.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-span-12 md:col-span-4">
           <div class="q-card text-center">
-            <span class="q-step-num mb-3">3</span>
+            <span class="q-step-num mb-4">3</span>
             <h5 data-i18n data-fr="Confectionnez &amp; encaissez" data-en="Craft &amp; get paid">Confectionnez &amp; encaissez</h5>
             <p class="text-muted mb-0" data-i18n data-fr="Suivez la commande et recevez le paiement par Mobile Money." data-en="Track the order and receive payment via Mobile Money.">Suivez la commande et recevez le paiement par Mobile Money.</p>
           </div>
@@ -123,23 +139,23 @@
 
   <!-- ============ TARIFS ============ -->
   <section class="section" id="tarifs">
-    <div class="container">
-      <div class="text-center mb-5">
+    <div class="q-container">
+      <div class="mb-12 text-center">
         <p class="eyebrow" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</p>
         <h2 class="section-title" data-i18n data-fr="Un prix simple, sans surprise" data-en="Simple pricing, no surprises">Un prix simple, sans surprise</h2>
         <p class="text-muted" data-i18n data-fr="Pas d'abonnement, pas de frais fixes." data-en="No subscription, no fixed fees.">Pas d'abonnement, pas de frais fixes.</p>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-5">
+      <div class="flex justify-center">
+        <div class="w-full md:w-2/3 lg:w-5/12">
           <div class="q-price-card">
             <span class="q-price-badge" data-i18n data-fr="Paiement à la commande" data-en="Pay per order">Paiement à la commande</span>
-            <div class="q-price mt-3">
+            <div class="q-price mt-4">
               <span class="q-price-amount">100</span>
               <span class="q-price-cur">FCFA</span>
               <span class="q-price-period" data-i18n data-fr="/ commande" data-en="/ order">/ commande</span>
             </div>
-            <p class="text-muted small mb-4" data-i18n data-fr="Facturé à chaque commande créée." data-en="Charged on each order you create.">Facturé à chaque commande créée.</p>
-            <ul class="q-price-list list-unstyled text-start mb-4">
+            <p class="text-muted small mb-6" data-i18n data-fr="Facturé à chaque commande créée." data-en="Charged on each order you create.">Facturé à chaque commande créée.</p>
+            <ul class="q-price-list mb-6 list-none p-0 text-left">
               <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Clients &amp; commandes illimités" data-en="Unlimited clients &amp; orders">Clients &amp; commandes illimités</span></li>
               <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Prise de mesures guidée, haut et bas du corps" data-en="Guided measurements, upper and lower body">Prise de mesures guidée, haut et bas du corps</span></li>
               <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Suivi des commandes" data-en="Order tracking">Suivi des commandes</span></li>
@@ -147,8 +163,8 @@
               <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Comptes pour votre équipe" data-en="Accounts for your team">Comptes pour votre équipe</span></li>
               <li><i class="bi bi-check-circle-fill"></i> <span data-i18n data-fr="Tableau de bord &amp; support" data-en="Dashboard &amp; support">Tableau de bord &amp; support</span></li>
             </ul>
-            <a href="#inscription" class="btn btn-q-primary w-100 py-3" data-i18n data-fr="Commencer maintenant" data-en="Start now">Commencer maintenant</a>
-            <p class="q-badge-secure justify-content-center mt-3 mb-0">
+            <a href="#inscription" class="btn btn-q-primary w-full py-4!" data-i18n data-fr="Commencer maintenant" data-en="Start now">Commencer maintenant</a>
+            <p class="q-badge-secure mb-0 mt-4 justify-center">
               <i class="bi bi-shield-check text-gold"></i> <span data-i18n data-fr="Inscription gratuite · Aucune carte bancaire requise" data-en="Free sign-up · No credit card required">Inscription gratuite · Aucune carte bancaire requise</span>
             </p>
           </div>
@@ -159,27 +175,27 @@
 
   <!-- ============ FAQ ============ -->
   <section class="section bg-beige" id="faq">
-    <div class="container" style="max-width: 820px;">
-      <div class="text-center mb-5">
+    <div class="q-container" style="max-width: 820px;">
+      <div class="mb-12 text-center">
         <p class="eyebrow" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</p>
         <h2 class="section-title" data-i18n data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</h2>
         <p class="text-muted" data-i18n data-fr="Tout ce que vous devez savoir sur Qoutur." data-en="Everything you need to know about Qoutur.">Tout ce que vous devez savoir sur Qoutur.</p>
       </div>
-      <div class="accordion q-accordion" id="faqAccordion"></div>
+      <div class="accordion q-accordion" id="faqAccordion" data-accordion></div>
     </div>
   </section>
 
   <!-- ============ CTA / INSCRIPTION ============ -->
   <section class="section-sm" id="inscription">
-    <div class="container">
+    <div class="q-container">
       <div class="q-cta">
-        <div class="row justify-content-between align-items-center g-4">
-          <div class="col-lg-9">
+        <div class="q-cta-inner grid grid-cols-12 items-center gap-6">
+          <div class="col-span-12 lg:col-span-9">
             <h2 class="mb-2" data-i18n data-fr="Prêt à digitaliser votre atelier ?" data-en="Ready to digitalize your workshop?">Prêt à digitaliser votre atelier ?</h2>
             <p class="mb-0 opacity-75" data-i18n data-fr="Rejoignez les tailleurs qui gèrent leurs clients et leurs paiements avec Qoutur. Gratuit pour commencer." data-en="Join the tailors managing their clients and payments with Qoutur. Free to start.">Rejoignez les tailleurs qui gèrent leurs clients et leurs paiements avec Qoutur. Gratuit pour commencer.</p>
           </div>
-          <div class="col-lg-3 text-lg-end">
-            <a href="https://qoutur-tailor.nakod.net/signin" class="btn btn-q-gold text-nowrap" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
+          <div class="col-span-12 lg:col-span-3 lg:text-right">
+            <a href="https://qoutur-tailor.nakod.net/signin" class="btn btn-q-gold whitespace-nowrap" data-i18n data-fr="Commencer" data-en="Get started">Commencer</a>
           </div>
         </div>
       </div>
@@ -188,13 +204,13 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="q-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <a class="d-inline-block mb-3" href="index.html">
+    <div class="q-container">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 lg:col-span-4">
+          <a class="mb-4 inline-block" href="index.html">
             <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
           </a>
-          <p class="small mb-3" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
+          <p class="small mb-4" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
           <div class="q-footer-socials">
             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -202,39 +218,39 @@
             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-        <div class="col-6 col-lg-2 offset-lg-1">
-          <h6 class="mb-3" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-2 lg:col-start-6">
+          <h6 class="mb-4" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
+          <ul class="small grid list-none gap-2 p-0">
             <li><a href="index.html#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
             <li><a href="index.html#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
             <li><a href="index.html#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2">
-          <h6 class="mb-3" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-2">
+          <h6 class="mb-4" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
+          <ul class="small grid list-none gap-2 p-0">
             <li><a href="index.html#faq" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</a></li>
             <li><a href="contactez-nous.html" data-i18n data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-3">
-          <h6 class="mb-3" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-3">
+          <h6 class="mb-4" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
+          <ul class="small grid list-none gap-2 p-0">
             <li><a href="mentions-legales.html" data-i18n data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
             <li><a href="termes-conditions.html" data-i18n data-fr="Termes et conditions" data-en="Terms &amp; conditions">Termes et conditions</a></li>
             <li><a href="politique-confidentialite.html" data-i18n data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
           </ul>
         </div>
       </div>
-      <hr class="border-secondary my-4 opacity-25" />
-      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small gap-2">
+      <hr class="my-6 opacity-25" />
+      <div class="small flex flex-col items-center justify-between gap-2 sm:flex-row">
         <span data-i18n data-fr="© 2026 Qoutur. Tous droits réservés." data-en="© 2026 Qoutur. All rights reserved.">© 2026 Qoutur. Tous droits réservés.</span>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/ui.js"></script>
 
   <!-- ============ DONNÉES + RENDU FONCTIONNALITÉS & FAQ ============ -->
   <script>
@@ -270,7 +286,7 @@
       const box = document.getElementById("featuresList");
       box.innerHTML = FEATURES.map((f) => {
         const t = f[lang];
-        return `<div class="col-md-6 col-lg-4">
+        return `<div class="col-span-12 md:col-span-6 lg:col-span-4">
           <div class="q-card">
             <span class="q-icon"><i class="bi ${f.icon}"></i></span>
             <h5>${esc(t[0])}</h5>
@@ -285,16 +301,19 @@
       box.innerHTML = FAQ.map((item, i) => {
         const t = item[lang];
         return `<div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq${i}">
-              ${esc(t[0])}
+          <h2 class="accordion-header m-0 text-base">
+            <button class="accordion-button collapsed" type="button"
+                    aria-expanded="false" aria-controls="faq${i}">
+              <span>${esc(t[0])}</span>
+              <i class="bi bi-chevron-down accordion-chevron"></i>
             </button>
           </h2>
-          <div id="faq${i}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div id="faq${i}" class="accordion-collapse" hidden>
             <div class="accordion-body">${esc(t[1])}</div>
           </div>
         </div>`;
       }).join("");
+      qUI.initAccordion(box);
     }
 
     function renderDynamic() {

@@ -11,8 +11,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS (CDN navigateur) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    /* Breakpoints alignés sur ceux de Bootstrap pour conserver
+       exactement les mêmes ruptures responsive. */
+    @theme {
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      --breakpoint-2xl: 1400px;
+    }
+  </style>
+
+  <!-- Icônes (indépendantes de Bootstrap CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tw-compat.css" />
   <link rel="stylesheet" href="css/admin.css" />
 </head>
 <body>
@@ -73,62 +89,62 @@
           <p>Transactions, retraits et soldes de la plateforme.</p>
         </div>
       </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-4">
+      <div class="grid grid-cols-12 gap-4 mb-6">
+        <div class="col-span-12 md:col-span-4">
           <div class="a-card a-card-pad kpi">
             <div class="kpi-top"><span class="kpi-val">86,4 M FCFA</span><span class="kpi-ico"><i class="bi bi-graph-up-arrow"></i></span></div>
             <span class="kpi-lbl">Volume total (GMV)</span>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-span-12 md:col-span-4">
           <div class="a-card a-card-pad kpi">
             <div class="kpi-top"><span class="kpi-val">2,1 M FCFA</span><span class="kpi-ico"><i class="bi bi-wallet2"></i></span></div>
             <span class="kpi-lbl">Solde total tailleurs</span>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-span-12 md:col-span-4">
           <div class="a-card a-card-pad kpi">
             <div class="kpi-top"><span class="kpi-val">4 300 FCFA</span><span class="kpi-ico"><i class="bi bi-hourglass-split"></i></span></div>
             <span class="kpi-lbl">Frais en attente</span>
           </div>
         </div>
       </div>
-      <div class="a-card mb-3">
-        <div class="a-card-pad d-flex align-items-center justify-content-between" style="padding-bottom:0;">
+      <div class="a-card mb-4">
+        <div class="a-card-pad flex items-center justify-between" style="padding-bottom:0;">
           <h2 class="a-section-title mb-0">Demandes de retrait</h2>
           <a href="retraits.html" class="a-btn a-btn-ghost a-btn-sm">Voir tout <i class="bi bi-arrow-right"></i></a>
         </div>
         <div class="a-table-wrap">
           <table class="a-table">
-            <thead><tr><th>Atelier</th><th>Opérateur</th><th>Montant</th><th>Statut</th><th class="text-end">Actions</th></tr></thead>
+            <thead><tr><th>Atelier</th><th>Opérateur</th><th>Montant</th><th>Statut</th><th class="text-right">Actions</th></tr></thead>
             <tbody>
             <tr data-status="attente">
               <td><strong>Bazro Design</strong></td>
               <td>MTN MoMo</td>
               <td class="amount">80 000 FCFA</td>
               <td><span class="badge-s s-amber">En attente</span></td>
-              <td class="text-end"><div class="d-flex gap-2 justify-content-end"><button class="a-btn a-btn-green a-btn-sm" data-action="approuver retrait">Approuver</button><button class="a-btn a-btn-red a-btn-sm" data-action="rejeter retrait">Rejeter</button></div></td>
+              <td class="text-right"><div class="flex gap-2 justify-end"><button class="a-btn a-btn-green a-btn-sm" data-action="approuver retrait">Approuver</button><button class="a-btn a-btn-red a-btn-sm" data-action="rejeter retrait">Rejeter</button></div></td>
             </tr>
             <tr data-status="approuve">
               <td><strong>Tissu Royal</strong></td>
               <td>MTN MoMo</td>
               <td class="amount">120 000 FCFA</td>
               <td><span class="badge-s s-green">Approuvée</span></td>
-              <td class="text-end"></td>
+              <td class="text-right"></td>
             </tr>
             <tr data-status="rejete">
               <td><strong>Sika Prestige</strong></td>
               <td>Moov Money</td>
               <td class="amount">45 000 FCFA</td>
               <td><span class="badge-s s-red">Rejetée</span></td>
-              <td class="text-end"></td>
+              <td class="text-right"></td>
             </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="a-card">
-        <div class="a-card-pad d-flex align-items-center justify-content-between" style="padding-bottom:0;">
+        <div class="a-card-pad flex items-center justify-between" style="padding-bottom:0;">
           <h2 class="a-section-title mb-0">Transactions récentes</h2>
           <a href="transactions.html" class="a-btn a-btn-ghost a-btn-sm">Voir tout <i class="bi bi-arrow-right"></i></a>
         </div>
@@ -165,7 +181,7 @@
               <td><span class="badge-s s-grey">Retrait</span></td>
               <td>Moov Money</td>
               <td>05 juil. 2026</td>
-              <td class="amount ">45 000 FCFA</td>
+              <td class="amount">45 000 FCFA</td>
               <td><span class="badge-s s-red">Rejeté</span></td>
             </tr>
             <tr>
