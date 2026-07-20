@@ -17,30 +17,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS (CDN navigateur) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    /* Breakpoints alignés sur ceux de Bootstrap pour conserver
+       exactement les mêmes ruptures responsive. */
+    @theme {
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      --breakpoint-2xl: 1400px;
+    }
+  </style>
+
+  <!-- Icônes (indépendantes de Bootstrap CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tw-compat.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <main class="result-wrap">
-    <div class="container">
+    <div class="q-container">
       <div class="result-card result-failed">
         <div class="result-icon failed">
           <i class="bi bi-x-lg"></i>
         </div>
-        <a href="index.html" aria-label="Accueil" class="d-inline-block mb-3">
+        <a href="index.html" aria-label="Accueil" class="inline-block mb-4">
           <img src="images/qoutur-logo.png" alt="Qoutur" style="height:72px;width:auto;" />
         </a>
         <h1 class="h3 mb-2" data-i18n data-fr="Paiement échoué" data-en="Payment failed">Paiement échoué</h1>
-        <p class="text-muted mb-4" data-i18n
+        <p class="text-muted mb-6" data-i18n
            data-fr="Votre paiement n'a pas pu être finalisé. Aucun montant n'a été débité. Vous pouvez réessayer ou choisir un autre opérateur."
            data-en="Your payment could not be completed. No amount has been charged. You can try again or choose another operator.">
           Votre paiement n'a pas pu être finalisé. Aucun montant n'a été débité. Vous pouvez réessayer ou choisir un autre opérateur.
         </p>
 
-        <div class="result-reasons text-start">
-          <p class="small fw-semibold mb-2" data-i18n data-fr="Causes possibles :" data-en="Possible causes:">Causes possibles :</p>
+        <div class="result-reasons text-left">
+          <p class="small font-semibold mb-2" data-i18n data-fr="Causes possibles :" data-en="Possible causes:">Causes possibles :</p>
           <ul class="small text-muted mb-0">
             <li data-i18n data-fr="Solde Mobile Money insuffisant" data-en="Insufficient Mobile Money balance">Solde Mobile Money insuffisant</li>
             <li data-i18n data-fr="Demande de confirmation expirée ou refusée" data-en="Confirmation request expired or declined">Demande de confirmation expirée ou refusée</li>
@@ -48,17 +64,17 @@
           </ul>
         </div>
 
-        <div class="d-grid gap-2 mt-4">
+        <div class="grid gap-2 mt-6">
           <a href="paiement.html" class="btn btn-q-primary py-2" data-i18n data-fr="Réessayer le paiement" data-en="Try payment again">Réessayer le paiement</a>
           <a href="contactez-nous.html" class="btn btn-q-outline py-2" data-i18n data-fr="Contacter le support" data-en="Contact support">Contacter le support</a>
         </div>
 
-        <a href="index.html" class="d-inline-block mt-4 small text-muted text-decoration-none" data-i18n data-fr="← Retour à l'accueil" data-en="← Back to home">← Retour à l'accueil</a>
+        <a href="index.html" class="inline-block mt-6 small text-muted no-underline" data-i18n data-fr="← Retour à l'accueil" data-en="← Back to home">← Retour à l'accueil</a>
       </div>
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

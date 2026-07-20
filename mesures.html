@@ -17,18 +17,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS (CDN navigateur) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    /* Breakpoints alignés sur ceux de Bootstrap pour conserver
+       exactement les mêmes ruptures responsive. */
+    @theme {
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      --breakpoint-2xl: 1400px;
+    }
+  </style>
+
+  <!-- Icônes (indépendantes de Bootstrap CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tw-compat.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <main class="container" style="max-width: 700px;">
+  <main class="q-container" style="max-width: 700px;">
 
     <!-- ============ EN-TÊTE ============ -->
     <div class="measure-header">
       <a href="index.html" aria-label="Retour à l'accueil">
-        <img src="images/qoutur-logo.png" alt="Qoutur" class="mb-3" style="height:110px;width:auto;" />
+        <img src="images/qoutur-logo.png" alt="Qoutur" class="mb-4" style="height:110px;width:auto;" />
       </a>
       <h1 class="h3 mb-1" data-i18n data-fr="Vos mesures" data-en="Your measurements">Vos mesures</h1>
       <p class="subtitle mb-1" data-i18n data-fr="Cliente SODA · Femme" data-en="Client SODA · Women">Cliente SODA · Femme</p>
@@ -41,7 +57,7 @@
 
       <!-- Barre d'envoi -->
       <div class="measure-submit-bar">
-        <button type="submit" class="btn btn-q-primary w-100 py-3">
+        <button type="submit" class="btn btn-q-primary w-full py-4">
           <i class="bi bi-send me-2"></i><span data-i18n data-fr="Envoyer mes mesures" data-en="Send my measurements">Envoyer mes mesures</span>
         </button>
       </div>
@@ -49,47 +65,47 @@
   </main>
 
   <!-- ============ MODALE IMAGE D'AIDE ============ -->
-  <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
+  <div class="modal" id="guideModal" tabindex="-1" aria-hidden="true" hidden>
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header border-0">
           <h5 class="modal-title" id="guideTitle">Mesure</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          <button type="button" class="btn-close" data-modal-close aria-label="Fermer"></button>
         </div>
         <div class="modal-body text-center">
-          <img id="guideImg" src="" alt="" class="img-fluid rounded d-none" style="max-height:340px;" />
+          <img id="guideImg" src="" alt="" class="max-w-full h-auto rounded hidden" style="max-height:340px;" />
           <div id="guidePlaceholder" class="measure-guide-placeholder">
             <i class="bi bi-image"></i>
             <span data-i18n data-fr="Image d'aide à venir" data-en="Help image coming soon">Image d'aide à venir</span>
           </div>
-          <p class="text-muted small mt-3 mb-0" id="guideHint"></p>
+          <p class="text-muted small mt-4 mb-0" id="guideHint"></p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- ============ MODALE RÉSULTAT D'ENREGISTREMENT ============ -->
-  <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+  <div class="modal" id="resultModal" tabindex="-1" aria-hidden="true" hidden>
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content text-center">
-        <div class="modal-body p-4">
+        <div class="modal-body p-6">
           <div class="result-icon" id="resIcon" style="width:72px;height:72px;font-size:2.2rem;"><i id="resIconGlyph" class="bi"></i></div>
           <h5 class="mb-2" id="resTitle"></h5>
-          <p class="text-muted mb-4" id="resMsg"></p>
-          <button type="button" class="btn btn-q-primary w-100" data-bs-dismiss="modal" id="resBtn"></button>
+          <p class="text-muted mb-6" id="resMsg"></p>
+          <button type="button" class="btn btn-q-primary w-full" data-modal-close id="resBtn"></button>
         </div>
       </div>
     </div>
   </div>
 
   <footer class="q-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <a class="d-inline-block mb-3" href="index.html">
+    <div class="q-container">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 lg:col-span-4">
+          <a class="inline-block mb-4" href="index.html">
             <img src="images/qoutur-logo-blanc.png" alt="Qoutur" style="height:40px;width:auto;" />
           </a>
-          <p class="small mb-3" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
+          <p class="small mb-4" style="max-width:24rem;" data-i18n data-fr="La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit." data-en="The platform that digitalizes the tailoring profession: measurements, orders and Mobile Money payments in one place.">La plateforme qui digitalise le métier de tailleur : mesures, commandes et paiements Mobile Money réunis en un seul endroit.</p>
           <div class="q-footer-socials">
             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -97,38 +113,38 @@
             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-        <div class="col-6 col-lg-2 offset-lg-1">
-          <h6 class="mb-3" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-2 lg:col-start-6">
+          <h6 class="mb-4" data-i18n data-fr="Produit" data-en="Product">Produit</h6>
+          <ul class="list-none p-0 small grid gap-2">
             <li><a href="index.html#fonctionnalites" data-i18n data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
             <li><a href="index.html#etapes" data-i18n data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
             <li><a href="index.html#tarifs" data-i18n data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2">
-          <h6 class="mb-3" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-2">
+          <h6 class="mb-4" data-i18n data-fr="Ressources" data-en="Resources">Ressources</h6>
+          <ul class="list-none p-0 small grid gap-2">
             <li><a href="index.html#faq" data-i18n data-fr="FAQ" data-en="FAQ">FAQ</a></li>
             <li><a href="contactez-nous.html" data-i18n data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-3">
-          <h6 class="mb-3" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
-          <ul class="list-unstyled small d-grid gap-2">
+        <div class="col-span-6 lg:col-span-3">
+          <h6 class="mb-4" data-i18n data-fr="Légal" data-en="Legal">Légal</h6>
+          <ul class="list-none p-0 small grid gap-2">
             <li><a href="mentions-legales.html" data-i18n data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
             <li><a href="termes-conditions.html" data-i18n data-fr="Termes et conditions" data-en="Terms &amp; conditions">Termes et conditions</a></li>
             <li><a href="politique-confidentialite.html" data-i18n data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
           </ul>
         </div>
       </div>
-      <hr class="border-secondary my-4 opacity-25" />
-      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small gap-2">
+      <hr class="my-6 opacity-25" />
+      <div class="flex flex-col sm:flex-row justify-between items-center small gap-2">
         <span data-i18n data-fr="© 2026 Qoutur. Tous droits réservés." data-en="© 2026 Qoutur. All rights reserved.">© 2026 Qoutur. Tous droits réservés.</span>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Génération des champs de mesure (repris de la capture) -->
@@ -166,12 +182,12 @@
     MESURES.forEach((nom, i) => {
       const id = 'm' + i;
       const card = document.createElement('div');
-      card.className = 'measure-card d-flex align-items-center justify-content-between gap-3 flex-wrap';
+      card.className = 'measure-card flex items-center justify-between gap-4 flex-wrap';
       card.innerHTML = `
         <div>
           <label class="measure-label mb-1" for="${id}">${nom}</label>
           <button type="button" class="measure-zoom" data-nom="${nom}" data-slug="${slugify(nom)}"
-                  data-bs-toggle="modal" data-bs-target="#guideModal">
+                  data-modal-open="guideModal">
             <i class="bi bi-image"></i> <span class="zoom-label">${T[lang()].see}</span>
           </button>
         </div>
@@ -196,16 +212,16 @@
         const nom = btn.dataset.nom, slug = btn.dataset.slug;
         document.getElementById('guideTitle').textContent = nom;
         document.getElementById('guideHint').textContent = T[lang()].hint(nom);
-        gImg.classList.add('d-none'); gPh.classList.remove('d-none');
-        gImg.onload  = () => { gImg.classList.remove('d-none'); gPh.classList.add('d-none'); };
-        gImg.onerror = () => { gImg.classList.add('d-none'); gPh.classList.remove('d-none'); };
+        gImg.classList.add('hidden'); gPh.classList.remove('hidden');
+        gImg.onload  = () => { gImg.classList.remove('hidden'); gPh.classList.add('hidden'); };
+        gImg.onerror = () => { gImg.classList.add('hidden'); gPh.classList.remove('hidden'); };
         gImg.alt = nom;
         gImg.src = "images/mesures/" + slug + ".png";
       });
     });
 
     // Soumission : succès si au moins une mesure est renseignée, sinon échec
-    const resModal = new bootstrap.Modal(document.getElementById('resultModal'));
+    const resModal = document.getElementById('resultModal');
     const resIcon  = document.getElementById('resIcon');
     const resGlyph = document.getElementById('resIconGlyph');
 
@@ -231,7 +247,7 @@
         document.getElementById('resBtn').textContent = t.retry;
       }
       resIcon.style.width = '72px'; resIcon.style.height = '72px'; resIcon.style.fontSize = '2.2rem';
-      resModal.show();
+      qUI.showModal(resModal);
     });
   </script>
 </body>
